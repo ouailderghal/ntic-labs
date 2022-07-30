@@ -1,0 +1,17 @@
+- hosts: all
+  user: vagrant
+  become: yes
+
+  tasks:
+    - name: Install C developement tools
+      block:
+        - name: Install build-essential and make
+          apt:
+            name:
+              - build-essential
+              - make
+            state: present
+
+        - name: Install Codeblocks
+          apt: name=codeblocks state=present
+
