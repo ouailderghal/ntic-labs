@@ -3,6 +3,24 @@
   become: yes
 
   tasks:
+    - name: Install and configure firewall
+      block:
+        - name: Install ufw firewall
+          tags: firewall,ufw
+          apt: name=ufw state=present
+
+        - name: Enable firewall and deny incoming connections
+          tags: firewall,ufw
+          ufw:
+            state: "enabled"
+            policy: "deny"
+            logging: "on"
+
+        - name: Allow OpenSSH service
+          ufw:
+            rule: allow
+            name: OpenSSH
+
     - name: Install C developement tools
       block:
         - name: Install build-essential and make
