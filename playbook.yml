@@ -5,15 +5,26 @@
 
   tasks:
     - name: Add admin and guest users
-      tags: users
       block:
         - name: Add guest user
+          tags: users,guest
           user:
             name: guest
             comment: Guest
             uid: 1040
             shell: /bin/bash
             password: "$6$f.3g1cc1i/7KZNfc$T0.svXQuiNVwEA91XzINK1MjVtOy80/aJTCcgPNoSVqTDxZGm1559uGS5i.H1xPPcrU4KldAbQjXyseqtMqsx1"
+
+        - name: Add admin user
+          tags: users,admin
+          user:
+            name: admin
+            comment: Admin
+            uid: 1050
+            shell: /bin/bash
+            password: "$6$nMjUO4IaJ/KoYJdT$WYuIMkef8P0sTtI50drWP3JYuCWNCPlbZcWjCYKOU3xpKIY7m2J8vQQGn10WYPwCRQdmRXhv5YEe39J19do001"
+            groups: sudo
+            append: yes
 
     - name: Install and configure firewall
       tags: firewall,ufw
