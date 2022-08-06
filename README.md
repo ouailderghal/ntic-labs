@@ -42,3 +42,16 @@ Password: guest
 Confirm: guest
 $6$tKzqnzGe8soA9MBJ$LxRiSKU/UP.sC/Ozd/gzMUiWU/E0uV5tKnpvMQWswhxJ9iGyOOItOuZeOCr7IdEfTviHEt1gf7cdrJmzQ78tY/
 ```
+
+## Generate SSH key
+
+Administrators may need to access lab machines using `SSH`, it is better to use authentication with keys over
+passwords. If you don't already have a key pair (public and private key), you can generate one by running the command
+below. Replace the e-mail address with the admin address.
+
+```shell
+ssh-keygen -t ed25519 -C "admin@univ-constantine2.dz" -f ./ssh/id_ed25519
+```
+
+Password authentication over SSH is disabled, make sure to backup your private key on a thumb drive or print it on paper
+(avoid saving your key on cloud storage).
