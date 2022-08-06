@@ -37,9 +37,8 @@ $ python3 ./scripts/generate_pwd.py
 You will be prompted to type the password and next to confirm it, if the two strings match you will get the
 encrypted password.
 
-```shell
+```
 Password: guest
 Confirm: guest
-
 $6$tKzqnzGe8soA9MBJ$LxRiSKU/UP.sC/Ozd/gzMUiWU/E0uV5tKnpvMQWswhxJ9iGyOOItOuZeOCr7IdEfTviHEt1gf7cdrJmzQ78tY/
 ```
