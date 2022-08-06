@@ -1,16 +1,27 @@
+---
 - hosts: all
   user: vagrant
   become: yes
 
   tasks:
+    - name: Add admin and guest users
+      tags: users
+      block:
+        - name: Add guest user
+          user:
+            name: guest
+            comment: Guest
+            uid: 1040
+            shell: /bin/bash
+            password: "$6$f.3g1cc1i/7KZNfc$T0.svXQuiNVwEA91XzINK1MjVtOy80/aJTCcgPNoSVqTDxZGm1559uGS5i.H1xPPcrU4KldAbQjXyseqtMqsx1"
+
     - name: Install and configure firewall
+      tags: firewall,ufw
       block:
         - name: Install ufw firewall
-          tags: firewall,ufw
           apt: name=ufw state=present
 
         - name: Enable firewall and deny incoming connections
-          tags: firewall,ufw
           ufw:
             state: "enabled"
             policy: "deny"
