@@ -63,6 +63,23 @@
             rule: allow
             name: OpenSSH
 
+    - name: Install and configure MariaDB
+      block:
+        - name: Install MariaDB
+          tags: database,mariadb
+          apt:
+            name:
+              - mariadb-server
+              - mariadb-client
+            state: present
+
+        - name: Enable and start MariaDB service
+          tags: database,mariadb
+          service:
+            name: mariadb
+            state: started
+            enabled: yes
+
     - name: Install C developement tools
       block:
         - name: Install build-essential and make
