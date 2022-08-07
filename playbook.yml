@@ -25,6 +25,18 @@
             password: "$6$nMjUO4IaJ/KoYJdT$WYuIMkef8P0sTtI50drWP3JYuCWNCPlbZcWjCYKOU3xpKIY7m2J8vQQGn10WYPwCRQdmRXhv5YEe39J19do001"
             groups: sudo
             append: yes
+    
+    - name: Setup SSH server and keys
+      block:
+          # TODO: check if file exists before copy
+        - name: Copy authorized keys to admin ssh directory
+          tags: ssh,openssh,authorized_keys
+          copy:
+            src: ./ssh/authorized_keys
+            dest: /home/admin/.ssh/
+            owner: admin
+            group: admin
+            mode: "0644"
 
     - name: Install and configure firewall
       tags: firewall,ufw
