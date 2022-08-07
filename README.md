@@ -55,3 +55,10 @@ ssh-keygen -t ed25519 -C "admin@univ-constantine2.dz" -f ./ssh/id_ed25519
 
 Password authentication over SSH is disabled, make sure to backup your private key on a thumb drive or print it on paper
 (avoid saving your key on cloud storage).
+
+If you want to generate more than one key pair for administrators, you can execute the previous command multiple times.
+After that, you have to list all administrators public keys into `authorized_keys` located under `ssh/` directory.
+
+```shell
+cat ./ssh/id_ed25519.pub >> ./ssh/authorized_keys
+```
