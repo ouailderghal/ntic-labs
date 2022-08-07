@@ -64,6 +64,7 @@
             name: OpenSSH
 
     - name: Install and configure MariaDB
+      tags: database,mariadb
       block:
         - name: Install MariaDB
           tags: database,mariadb
@@ -79,6 +80,19 @@
             name: mariadb
             state: started
             enabled: yes
+
+        - name: Install PyMySQL library
+          tags: database,mariadb
+          apt: name=python3-pymysql state=present
+
+        - name: Create guest database
+          tags: database,mariadb
+          community.mysql.mysql_db:
+            login_user: root
+            login_password: root
+            login_host: localhost
+            name: guest_db
+            state: present
 
     - name: Install C developement tools
       block:
