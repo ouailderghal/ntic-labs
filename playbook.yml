@@ -88,11 +88,22 @@
         - name: Create guest database
           tags: database,mariadb
           community.mysql.mysql_db:
+            login_host: localhost
             login_user: root
             login_password: root
-            login_host: localhost
             name: guest_db
             state: present
+
+        - name: Create guest user
+          community.mysql.mysql_user:
+            login_host: localhost
+            login_user: root
+            login_password: root
+            name: guest
+            state: present
+            password: guest
+            priv:
+              'guest_db.*': 'ALL,GRANT'
 
     - name: Install C developement tools
       block:
