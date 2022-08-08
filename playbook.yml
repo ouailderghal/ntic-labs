@@ -12,6 +12,24 @@
         cache_valid_time: 3600
         force_apt_get: yes
 
+    - name: Install and configure desktop environment
+      tags: desktop
+      block:
+        - name: Install xfce4 and lightdm
+          tags: xfce,xfce4
+          apt:
+            name:
+              - xfce4
+              - xfce4-goodies
+              - lightdm
+
+        - name: Enable lightdm service
+          tags: lightdm
+          service:
+            name: lightdm
+            state: started
+            enabled: yes
+
     - name: Add admin and guest users
       block:
         - name: Add guest user
