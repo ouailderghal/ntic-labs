@@ -194,3 +194,12 @@
               - openjdk-17-dbg
             state: present
 
+        - name: Copy eclipse.tar.gz file
+          tags: eclipse
+          copy:
+            src: ./packages/eclipse.tar.gz
+            dest: /home/admin/
+            owner: admin
+            group: admin
+            mode: '0664'
+
