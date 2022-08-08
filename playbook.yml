@@ -105,6 +105,14 @@
             priv:
               'guest_db.*': 'ALL,GRANT'
 
+    - name: Install SQLite and SQLite browser
+      tags: database,sqlite
+      apt:
+        name:
+          - sqlite3
+          - sqlite3-doc
+          - sqlitebrowser
+
     - name: Install C developement tools
       block:
         - name: Install build-essential and make
