@@ -32,8 +32,17 @@
 
     - name: Install Microsoft Visual Studio Code
       tags: code,vscode
-      apt:
-        deb: "https://az764295.vo.msecnd.net/stable/da76f93349a72022ca4670c1b84860304616aaa2/code_1.70.0-1659589288_amd64.deb"
+      block:
+        - name: Copy vscode.deb file
+          copy:
+            src: ./packages/vscode.deb
+            dest: /home/admin/
+            owner: admin
+            group: admin
+            mode: '0664'
+
+        - name: Install vscode.deb
+          apt: deb=/home/admin/vscode.deb
 
     - name: Wireshark
       tags: wireshark
@@ -173,6 +182,7 @@
           apt: name=codeblocks state=present
 
     - name: Install Java developement tools
+      tags: java,openjdk
       block:
         - name: Install openJDK
           apt:
