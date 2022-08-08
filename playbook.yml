@@ -30,6 +30,15 @@
             state: started
             enabled: yes
 
+    - name: Install command line tools
+      tags: command_line
+      apt:
+        name:
+          - htop
+          - neofetch
+          - tree
+          - vim
+
     - name: Add admin and guest users
       block:
         - name: Add guest user
