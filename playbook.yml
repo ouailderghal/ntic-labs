@@ -201,5 +201,21 @@
             dest: /home/admin/
             owner: admin
             group: admin
-            mode: '0664'
+            mode: 0664
+
+        - name: Unarchive eclipse.tar.gz file into /opt
+          tags: eclipse
+          unarchive:
+            src: /home/admin/eclipse.tar.gz
+            dest: /opt
+            remote_src: yes
+
+        - name: Copy eclipse.desktop application launcher
+          tags: eclipse
+          copy:
+            src: ./applications/eclipse.desktop
+            dest: /usr/share/applications
+            owner: root
+            group: root
+            mode: 0776
 
