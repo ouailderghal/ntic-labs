@@ -219,3 +219,17 @@
             group: root
             mode: 0776
 
+
+    - name: Install Cisco Packet Tracer
+      tags: packettracer,pt
+      block:
+        - name: Copy packettracer.deb file
+          copy:
+            src: ./packages/packettracer.deb
+            dest: /home/admin/
+            owner: admin
+            group: admin
+            mode: 0664
+
+        - name: Install packettracer.deb
+          apt: deb=/home/admin/packettracer.deb
