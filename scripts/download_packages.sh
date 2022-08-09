@@ -24,7 +24,7 @@ ECLIPSE_FILENAME="eclipse.tar.gz"
 VSCODE_URL="https://az764295.vo.msecnd.net/stable/da76f93349a72022ca4670c1b84860304616aaa2/code_1.70.0-1659589288_amd64.deb"
 VSCODE_FILENAME="vscode.deb"
 
-PACKETTRACER_URL=""
+PACKETTRACER_URL="https://ia802208.us.archive.org/20/items/pt81_20220222/CiscoPacketTracer_811_Ubuntu_64bit.deb"
 PACKETTRACER_FILENAME="packettracer.deb"
 
 # Create download directory if it does not exist
@@ -39,6 +39,6 @@ mkdir -p $DOWNLOAD_DIR
     echo "[INFO] Visual Studio Code has already been downloaded."
 
 # Download Cisco Packet Tracer
-# [ ! -f $DOWNLOAD_DIR/$PACKETTRACER_FILENAME ] && curl $PACKETTRACER_URL -o $DOWNLOAD_DIR/$PACKETTRACER_FILENAME || \
-#     echo "[INFO] Cisco Packet Tracer has already been downloaded."
+[ ! -f $DOWNLOAD_DIR/$PACKETTRACER_FILENAME ] && curl $PACKETTRACER_URL -o $DOWNLOAD_DIR/$PACKETTRACER_FILENAME || \
+    echo "[INFO] Cisco Packet Tracer has already been downloaded."
 
