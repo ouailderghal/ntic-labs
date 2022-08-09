@@ -68,6 +68,13 @@
           - tree
           - vim
 
+    - name: Install git
+      tags: git
+      apt:
+        name:
+          - git
+          - gitg
+
     - name: Add admin and guest users
       block:
         - name: Add guest user
