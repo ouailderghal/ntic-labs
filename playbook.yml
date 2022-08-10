@@ -99,7 +99,6 @@
     
     - name: Setup SSH server and keys
       block:
-          # TODO: check if file exists before copy
         - name: Copy authorized keys to admin ssh directory
           tags: ssh,openssh,authorized_keys
           copy:
