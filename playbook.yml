@@ -93,7 +93,7 @@
             comment: Admin
             uid: 1050
             shell: /bin/bash
-            password: "$6$nMjUO4IaJ/KoYJdT$WYuIMkef8P0sTtI50drWP3JYuCWNCPlbZcWjCYKOU3xpKIY7m2J8vQQGn10WYPwCRQdmRXhv5YEe39J19do001"
+            password: "{{ admin_password }}"
             groups: sudo
             append: yes
     
