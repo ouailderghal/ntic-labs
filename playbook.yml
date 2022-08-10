@@ -108,6 +108,8 @@
             group: admin
             mode: "0644"
 
+        # TODO: disable SSH password login
+
     - name: Install and configure firewall
       tags: firewall,ufw
       block:
@@ -166,6 +168,27 @@
             password: guest
             priv:
               'guest_db.*': 'ALL,GRANT'
+
+        - name: Install adminer
+          tags: adminer
+          apt: name=adminer state=present
+
+        - name: Enable apache2 service
+          tags: adminer
+          service:
+            name: apache2
+            state: started
+            enabled: yes
+
+        - name: Enable adminer apache configuration
+          tags: adminer
+          shell: a2enconf adminer
+
+        - name: Reload apache2 service after enabling adminer configuration
+          tags: adminer
+          service:
+            name: apache2
+            state: reloaded
 
     - name: Install SQLite and SQLite browser
       tags: database,sqlite
