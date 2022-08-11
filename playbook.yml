@@ -262,3 +262,13 @@
 
         - name: Install packettracer.deb
           apt: deb=/home/admin/packettracer.deb
+
+    - name: Install extra packages
+      tags: extra,extra_packages
+      apt:
+        name:
+          - vlc
+          - chromium
+          - gimp
+          - inkscape
+          - mypaint
