@@ -11,7 +11,7 @@
 #   - Cisco Packet Tracer
 # 
 # Make sure that you point the WORKDIR variable to the path of the project on your machine.
-# If you are having any trouble when downloading packages, update URL constants to active links.
+# If you are having any trouble when downloading packages, update URL constants to active and working links.
 # Downloaded packages can be found in your project folder, under packages directory.
 # 
 
