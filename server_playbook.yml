@@ -3,3 +3,10 @@
   user: vagrant
   become: yes
 
+  tasks:
+    - name: Update cache and full system upgrade
+      tags: update,upgrade,cache_update
+      yum:
+        name: '*'
+        state: latest
+        update_cache: yes
