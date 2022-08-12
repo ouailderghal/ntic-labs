@@ -10,3 +10,13 @@
         name: '*'
         state: latest
         update_cache: yes
+
+    - name: Configure DNS service
+      tags: dns
+      block:
+        - name: Install DNS and DNS utilities
+          dnf:
+            name:
+              - bind
+              - bind-utils
+            state: present
