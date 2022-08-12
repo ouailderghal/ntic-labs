@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "lab_machine_1" do |lab_machine|
     lab_machine.vm.box = "debian/bullseye64"
     lab_machine.vm.hostname = "machine1.lab1.local"
-    lab_machine.vm.network "public_network", bridge: "wlp3s0: Wi-Fi Network"
+    lab_machine.vm.network "public_network", bridge: "wlp3s0: Wi-Fi Network", ip: "192.168.42.2"
 
     lab_machine.vm.provider "virtualbox" do |vb|
       vb.gui = true
@@ -15,9 +15,9 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "server_1" do |server|
-    server.vm.box = "centos/7"
+    server.vm.box = "almalinux/9"
     server.vm.hostname = "server1.local"
-    server.vm.network "public_network", bridge: "wlp3s0: Wi-Fi Network"
+    server.vm.network "public_network", bridge: "wlp3s0: Wi-Fi Network", ip: "192.168.42.1"
 
     server.vm.provider "virtualbox" do |vb|
       vb.gui = false
