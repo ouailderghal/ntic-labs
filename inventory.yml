@@ -4,11 +4,11 @@ all:
   children:
     servers:
       hosts:
-        192.168.42.1:
+        192.168.16.1:
 
     machines:
       hosts:
-        192.168.42.2:
+        192.168.16.2:
           admin_password: "$6$.imgbKIHt09JSVPU$fYqmLzSDtcX2xDCV2.Dgnha5uLkoFWfrVgYRhm.vIvXxLwwZA2NFepHUXq/kl6.1NhGCf5G7f6/qfBBqdtEW1."
 
 
