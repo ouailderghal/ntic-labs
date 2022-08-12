@@ -6,7 +6,7 @@
   tasks:
     - name: Update cache and full system upgrade
       tags: update,upgrade,cache_update
-      yum:
+      dnf:
         name: '*'
         state: latest
         update_cache: yes
