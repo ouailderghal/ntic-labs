@@ -242,7 +242,7 @@
         - name: Copy eclipse.desktop application launcher
           tags: eclipse
           copy:
-            src: ./applications/eclipse.desktop
+            src: ./config/eclipse/eclipse.desktop
             dest: /usr/share/applications
             owner: root
             group: root
