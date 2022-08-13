@@ -1,16 +1,21 @@
-zone "servers.local" {
+zone "servers" {
 	type master;
-	file "/etc/named/zones/db.servers.local";
+	file "/etc/named/zones/db.servers";
 };
 
-zone "lab4.local" {
+zone "lab4" {
 	type master;
-	file "/etc/named/zones/db.lab4.local";
+	file "/etc/named/zones/db.lab4";
 };
 
-zone "lab5.local" {
+zone "lab5" {
 	type master;
-	file "/etc/named/zones/db.lab5.local";
+	file "/etc/named/zones/db.lab5";
+};
+
+zone "lab6" {
+	type master;
+	file "/etc/named/zones/db.lab6";
 };
 
 zone "168.192.in-addr.arpa" {
