@@ -34,7 +34,7 @@
             src: config/bind/named.conf
             dest: /etc/named.conf
             owner: root
-            group: root
+            group: named
             mode: 0640
             backup: yes
 
@@ -44,5 +44,14 @@
             src: config/bind/named.conf.local
             dest: /etc/named/named.conf.local
             owner: root
-            group: root
+            group: named
+            mode: 0640
+
+        - name: Copy zones database files
+          tags: named,zones_db
+          copy:
+            src: config/bind/zones/
+            dest: /etc/named/zones/
+            owner: root
+            group: named
             mode: 0640
