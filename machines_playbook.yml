@@ -3,7 +3,7 @@
   user: vagrant
   become: yes
 
-  tasks:
+  pre_tasks:
     - name: Update cache and full system upgrade
       tags: update,upgrade,cache_update
       apt:
@@ -12,6 +12,7 @@
         cache_valid_time: 3600
         force_apt_get: yes
 
+  tasks:
     - name: Install and configure desktop environment
       tags: desktop
       block:
