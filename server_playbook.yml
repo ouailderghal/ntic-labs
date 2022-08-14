@@ -11,6 +11,13 @@
         state: latest
         update_cache: yes
 
+    - name: Install administation utilities
+      tags: admin_utils,utils
+      dnf:
+        name: 
+          - vim
+          - tmux
+
     - name: Configure DNS service
       tags: dns
       block:
@@ -20,3 +27,14 @@
               - bind
               - bind-utils
             state: present
+
+        - name: Copy named config file
+          tags: named,named_config
+          copy:
+            src: config/bind/named.conf
+            dest: /etc/named.conf
+            owner: root
+            group: root
+            mode: 0640
+            backup: yes
+
