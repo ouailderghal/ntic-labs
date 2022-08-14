@@ -28,7 +28,7 @@
               - bind-utils
             state: present
 
-        - name: Copy named config file
+        - name: Copy named configuration file
           tags: named,named_config
           copy:
             src: config/bind/named.conf
@@ -38,3 +38,11 @@
             mode: 0640
             backup: yes
 
+        - name: Copy zones configuration file
+          tags: named,zones_config
+          copy:
+            src: config/bind/named.conf.local
+            dest: /etc/named/named.conf.local
+            owner: root
+            group: root
+            mode: 0640
