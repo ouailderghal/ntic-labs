@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  apache:
+    image: httpd:alpine 
+    networks:
+      network:
+        ipv4_address: 192.168.16.100
+
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.16.0/24
+          gateway: 192.168.16.128
