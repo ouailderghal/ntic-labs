@@ -55,3 +55,11 @@
             owner: root
             group: named
             mode: 0640
+
+        - name: Enable and run named service
+          tags: named,named_service
+          service:
+            name: named
+            state: started
+            enabled: yes
+
