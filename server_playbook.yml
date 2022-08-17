@@ -1,6 +1,6 @@
 ---
 - hosts: servers
-  user: vagrant
+  user: ouail
   become: yes
 
   pre_tasks:
