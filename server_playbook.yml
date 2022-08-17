@@ -5,17 +5,22 @@
 
   pre_tasks:
     - name: Update cache and full system upgrade
-      tags: update,upgrade,cache_update
-      dnf:
-        name: '*'
-        state: latest
+      tags: update,upgrade
+      apt:
         update_cache: yes
+        upgrade: dist
+        cache_valid_time: 3600
+        force_apt_get: yes
 
-    - name: Install administation utilities
-      tags: admin_utils,utils
-      dnf:
-        name: 
+    - name: Install administration utilities
+      tags: admin_utilities
+      apt:
+        name:
           - vim
+          - htop
+          - neofetch
+          - fzf
+          - tree
           - tmux
 
   tasks:
