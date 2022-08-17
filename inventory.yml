@@ -4,7 +4,8 @@ all:
   children:
     servers:
       hosts:
-        192.168.16.1:
+        10.0.0.1:
+          hostname: "s1.servers"
 
     machines:
       hosts:
