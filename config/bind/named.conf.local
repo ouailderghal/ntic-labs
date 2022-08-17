@@ -1,0 +1,17 @@
+// Local zones configuration
+
+zone "servers" {
+	type master;
+	file "/etc/bind/zones/db.servers";
+};
+
+zone "lab4" {
+	type master;
+	file "/etc/bind/zones/db.lab4";
+};
+
+zone "0.10.in-addr.arpa" {
+	type master;
+	file "/etc/bind/zones/db.10.0";
+};
+

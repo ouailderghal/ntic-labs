@@ -1,0 +1,41 @@
+$TTL	604800
+@	IN	SOA	s1.servers. root.s1.servers. (
+			      4		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+
+; name server
+@   IN	NS	s1.servers.
+
+; servers
+1.0 IN	PTR	s1.servers.
+
+; lab4
+1.4	    IN  PTR pc1.lab4.	
+2.4	    IN	PTR	pc2.lab4.	
+3.4	    IN	PTR	pc3.lab4.	
+4.4	    IN	PTR	pc4.lab4.	
+5.4	    IN	PTR	pc5.lab4.	
+6.4	    IN	PTR	pc6.lab4.	
+7.4	    IN	PTR	pc7.lab4.	
+8.4	    IN	PTR	pc8.lab4.	
+9.4	    IN	PTR	pc9.lab4.	
+10.4	IN	PTR	pc10.lab4.	
+11.4	IN	PTR	pc11.lab4.	
+12.4	IN	PTR	pc12.lab4.	
+13.4	IN	PTR	pc13.lab4.	
+14.4	IN	PTR	pc14.lab4.	
+15.4	IN	PTR	pc15.lab4.	
+16.4	IN	PTR	pc16.lab4.	
+17.4	IN	PTR	pc17.lab4.	
+18.4	IN	PTR	pc18.lab4.	
+19.4	IN	PTR	pc19.lab4.	
+20.4	IN	PTR	pc20.lab4.	
+21.4	IN	PTR	pc21.lab4.	
+22.4	IN	PTR	pc22.lab4.	
+23.4	IN	PTR	pc23.lab4.	
+24.4	IN	PTR	pc24.lab4.	
+25.4	IN	PTR	pc25.lab4.	
+
