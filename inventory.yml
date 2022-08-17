@@ -8,7 +8,7 @@ all:
 
     machines:
       hosts:
-        192.168.16.2:
+        10.0.0.11:
           admin_password: "$6$.imgbKIHt09JSVPU$fYqmLzSDtcX2xDCV2.Dgnha5uLkoFWfrVgYRhm.vIvXxLwwZA2NFepHUXq/kl6.1NhGCf5G7f6/qfBBqdtEW1."
 
 

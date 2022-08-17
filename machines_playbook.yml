@@ -1,6 +1,6 @@
 ---
-- hosts: all
-  user: vagrant
+- hosts: machines
+  user: debian
   become: yes
 
   pre_tasks:
@@ -23,6 +23,8 @@
               - xfce4
               - xfce4-goodies
               - lightdm
+            state: present
+          when: false
 
         - name: Enable lightdm service
           tags: lightdm
@@ -59,6 +61,28 @@
             name: guest
             groups: wireshark
             append: yes
+
+        - name: Add debian user to wireshark group
+          user:
+            name: debian
+            groups: wireshark
+            append: yes
+
+        - name: wireshark setuid
+          ansible.builtin.debconf:
+            name: wireshark-common
+            question: wireshark-common/install-setuid
+            value: yes
+            vtype: boolean
+          register: reconfigure_changed
+
+        - name: make debconf changes active
+          ansible.builtin.command:
+            cmd: "dpkg-reconfigure wireshark-common"
+          environment:
+            DEBIAN_FRONTEND: noninteractive
+          when: reconfigure_changed.changed
+
 
     - name: Install command line tools
       tags: command_line
