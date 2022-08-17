@@ -28,10 +28,13 @@
       tags: dns
       block:
         - name: Install DNS and DNS utilities
-          dnf:
+          tags: dns_install
+          apt:
             name:
-              - bind
-              - bind-utils
+              - bind9
+              - bind9-doc
+              - bind9-utils
+              - bind9-dnsutils
             state: present
 
         - name: Copy named configuration file
