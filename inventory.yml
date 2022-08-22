@@ -86,3 +86,159 @@ all:
             10.0.4.25:
               hostname: "pc25.lab4"
               admin_password: ""
+
+        lab5:
+          hosts:
+            10.0.5.1:
+              hostname: "pc1.lab5"
+              admin_password: ""
+            10.0.5.2:
+              hostname: "pc2.lab5"
+              admin_password: ""
+            10.0.5.3:
+              hostname: "pc3.lab5"
+              admin_password: ""
+            10.0.5.4:
+              hostname: "pc4.lab5"
+              admin_password: ""
+            10.0.5.5:
+              hostname: "pc5.lab5"
+              admin_password: ""
+            10.0.5.6:
+              hostname: "pc6.lab5"
+              admin_password: ""
+            10.0.5.7:
+              hostname: "pc7.lab5"
+              admin_password: ""
+            10.0.5.8:
+              hostname: "pc8.lab5"
+              admin_password: ""
+            10.0.5.9:
+              hostname: "pc9.lab5"
+              admin_password: ""
+            10.0.5.10:
+              hostname: "pc10.lab5"
+              admin_password: ""
+            10.0.5.11:
+              hostname: "pc11.lab5"
+              admin_password: ""
+            10.0.5.12:
+              hostname: "pc12.lab5"
+              admin_password: ""
+            10.0.5.13:
+              hostname: "pc13.lab5"
+              admin_password: ""
+            10.0.5.14:
+              hostname: "pc14.lab5"
+              admin_password: ""
+            10.0.5.15:
+              hostname: "pc15.lab5"
+              admin_password: ""
+            10.0.5.16:
+              hostname: "pc16.lab5"
+              admin_password: ""
+            10.0.5.17:
+              hostname: "pc17.lab5"
+              admin_password: ""
+            10.0.5.18:
+              hostname: "pc18.lab5"
+              admin_password: ""
+            10.0.5.19:
+              hostname: "pc19.lab5"
+              admin_password: ""
+            10.0.5.20:
+              hostname: "pc20.lab5"
+              admin_password: ""
+            10.0.5.21:
+              hostname: "pc21.lab5"
+              admin_password: ""
+            10.0.5.22:
+              hostname: "pc22.lab5"
+              admin_password: ""
+            10.0.5.23:
+              hostname: "pc23.lab5"
+              admin_password: ""
+            10.0.5.24:
+              hostname: "pc24.lab5"
+              admin_password: ""
+            10.0.5.25:
+              hostname: "pc25.lab5"
+              admin_password: ""
+
+        lab6:
+          hosts:
+            10.0.6.1:
+              hostname: "pc1.lab6"
+              admin_password: ""
+            10.0.6.2:
+              hostname: "pc2.lab6"
+              admin_password: ""
+            10.0.6.3:
+              hostname: "pc3.lab6"
+              admin_password: ""
+            10.0.6.4:
+              hostname: "pc4.lab6"
+              admin_password: ""
+            10.0.6.5:
+              hostname: "pc5.lab6"
+              admin_password: ""
+            10.0.6.6:
+              hostname: "pc6.lab6"
+              admin_password: ""
+            10.0.6.7:
+              hostname: "pc7.lab6"
+              admin_password: ""
+            10.0.6.8:
+              hostname: "pc8.lab6"
+              admin_password: ""
+            10.0.6.9:
+              hostname: "pc9.lab6"
+              admin_password: ""
+            10.0.6.10:
+              hostname: "pc10.lab6"
+              admin_password: ""
+            10.0.6.11:
+              hostname: "pc11.lab6"
+              admin_password: ""
+            10.0.6.12:
+              hostname: "pc12.lab6"
+              admin_password: ""
+            10.0.6.13:
+              hostname: "pc13.lab6"
+              admin_password: ""
+            10.0.6.14:
+              hostname: "pc14.lab6"
+              admin_password: ""
+            10.0.6.15:
+              hostname: "pc15.lab6"
+              admin_password: ""
+            10.0.6.16:
+              hostname: "pc16.lab6"
+              admin_password: ""
+            10.0.6.17:
+              hostname: "pc17.lab6"
+              admin_password: ""
+            10.0.6.18:
+              hostname: "pc18.lab6"
+              admin_password: ""
+            10.0.6.19:
+              hostname: "pc19.lab6"
+              admin_password: ""
+            10.0.6.20:
+              hostname: "pc20.lab6"
+              admin_password: ""
+            10.0.6.21:
+              hostname: "pc21.lab6"
+              admin_password: ""
+            10.0.6.22:
+              hostname: "pc22.lab6"
+              admin_password: ""
+            10.0.6.23:
+              hostname: "pc23.lab6"
+              admin_password: ""
+            10.0.6.24:
+              hostname: "pc24.lab6"
+              admin_password: ""
+            10.0.6.25:
+              hostname: "pc25.lab6"
+              admin_password: ""
