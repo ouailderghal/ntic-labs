@@ -3,6 +3,11 @@
   user: debian
   become: yes
 
+  roles:
+    - role: gantsign.keyboard
+      keyboard_model: pc105
+      keyboard_layout: fr
+
   pre_tasks: 
     - name: Set hostname
       tags: hostname
