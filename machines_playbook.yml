@@ -130,6 +130,18 @@
         - name: Allow OpenSSH service through firewall
           ufw: rule=allow name=OpenSSH
 
+        - name: Allow TCP developement ports
+          ufw:
+            rule: allow
+            port: 8000:8005
+            proto: tcp
+
+        - name: Allow UDP developement ports
+          ufw:
+            rule: allow
+            port: 8000:8005
+            proto: udp
+
     - name: NETWORKING TOOLS INSTALLATION
       tags: networking
       block:
