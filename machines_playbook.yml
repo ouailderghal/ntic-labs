@@ -236,6 +236,26 @@
           - codeblocks
         state: present
 
+    - name: PHP & APAHCE WEB SERVER
+      tags: php
+      block:
+        - name: Install PHP and required modules
+          apt:
+            name:
+              - php
+              - php-zip
+              - php-yaml
+              - php-mysql
+              - php-ldap
+              - php-bcmath
+              - php-mbstring
+              - php-gd
+              - php-pdo
+              - php-xml
+              - php-sqlite3
+              - libapache2-mod-php
+            state: present
+
     - name: Install Microsoft Visual Studio Code
       tags: vscode
       block:
