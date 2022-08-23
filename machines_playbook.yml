@@ -1,5 +1,5 @@
 ---
-- hosts: lab4
+- hosts: lab5
   user: debian
   become: yes
 
@@ -294,6 +294,7 @@
             state: present
 
     - name: Install extra utilities
+      tags: extra
       apt:
         name:
           - htop
@@ -308,5 +309,6 @@
           - inkscape
           - mypaint
           - filezilla
+          - numlockx
         state: present
 
