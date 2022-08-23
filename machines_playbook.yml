@@ -256,6 +256,12 @@
               - libapache2-mod-php
             state: present
 
+        - name: Install Apache2 server
+          apt: name=apache2 state=present
+
+        - name: Enable and run Apache2 service
+          service: name=apache2 state=started enabled=yes
+
     - name: Install Microsoft Visual Studio Code
       tags: vscode
       block:
