@@ -10,6 +10,11 @@ zone "lab4" {
 	file "/etc/bind/zones/db.lab4";
 };
 
+zone "lab5" {
+	type master;
+	file "/etc/bind/zones/db.lab5";
+};
+
 zone "0.10.in-addr.arpa" {
 	type master;
 	file "/etc/bind/zones/db.10.0";
