@@ -1,9 +1,52 @@
 ---
-- hosts: machines
+- hosts: lab5
   user: debian
   become: yes
 
-  pre_tasks:
+  pre_tasks: 
+    - name: Set hostname
+      tags: hostname
+      hostname: name="{{ hostname }}"
+
+    - name: DATE AND TIME CONFIGURATION
+      tags: datetime
+      block:
+        - name: Set timezone to Africa/Algiers
+          tags: timezone
+          timezone: name=Africa/Algiers
+
+        - name: Install NTP
+          tags: ntp
+          apt: name=ntp state=present
+
+        - name: Enable and run NTP service
+          tags: ntp
+          service: name=ntp state=started enabled=yes
+
+    - name: SYSTEM UPDATE AND UPGRADE
+      tags: update,upgrade
+      block:
+        - name: Copy sources.list file
+          tags: sources.list
+          copy:
+            src: ./config/apt/sources.list
+            dest: /etc/apt/sources.list
+            owner: root
+            group: root
+            backup: yes
+
+    - name: Copy bash configuration
+      tags: bash,bashrc
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        owner: root
+        group: root
+        backup: yes
+      with_items:
+        - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
+        - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
+
     - name: Update cache and full system upgrade
       tags: update,upgrade,cache_update
       apt:
@@ -13,62 +56,112 @@
         force_apt_get: yes
 
   tasks:
-    - name: Install and configure desktop environment
-      tags: desktop
+    - name: USER CREATION (ADMINISTRATOR, GUEST)
+      tags: users
       block:
-        - name: Install xfce4 and lightdm
-          tags: xfce,xfce4
-          apt:
-            name:
-              - xfce4
-              - xfce4-goodies
-              - lightdm
-            state: present
-          when: false
-
-        - name: Enable lightdm service
-          tags: lightdm
-          service:
-            name: lightdm
-            state: started
-            enabled: yes
-
-    - name: Install Microsoft Visual Studio Code
-      tags: code,vscode
-      block:
-        - name: Copy vscode.deb file
+        - name: Copy BASH configuration file
+          tags: bash,bashrc
           copy:
-            src: ./packages/vscode.deb
+            src: "{{ item.src }}"
+            dest: "{{ item.dest }}"
+            owner: root
+            group: root
+            backup: yes
+          with_items:
+            - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
+            - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
+
+        - name: Create guest user
+          tags: guest_user
+          user:
+            name: guest
+            comment: guest
+            uid: 1040
+            shell: /bin/bash
+            home: /home/guest/
+            password: "$6$f.3g1cc1i/7KZNfc$T0.svXQuiNVwEA91XzINK1MjVtOy80/aJTCcgPNoSVqTDxZGm1559uGS5i.H1xPPcrU4KldAbQjXyseqtMqsx1"
+            skeleton: no
+            state: present
+
+        - name: Create admin user
+          tags: admin
+          user:
+            name: admin
+            comment: admin
+            uid: 1050
+            shell: /bin/bash
+            password: "$6$q1kuowxeVHhyfU5N$3vuySF55BN7C1YnrK3fB7JrH.IHRv33jM.LgJ8m1ZToEPkgIa38ztlyTT4Qe3xOGlXYbXJ4B4OiCOa4.lYG8/."
+            groups: sudo
+            append: yes
+
+        - name: Copy lighdm configuration file
+          tags: lightdm
+          copy:
+            src: ./config/lightdm/lightdm.conf
+            dest: /etc/lightdm/lightdm.conf
+            owner: root
+            group: root
+            backup: yes
+
+    - name: SSH CONFIGURATION
+      tags: ssh
+      block:
+        - name: Copy SSH authorized keys for administrator user
+          tags: authorized_keys
+          copy:
+            src: ./config/ssh/authorized_keys
+            dest: /home/admin/.ssh/
+            owner: admin
+            group: admin
+            mode: 0644
+
+    - name: FIREWALL CONFIGURATION
+      tags: firewall,ufw
+      block:
+        - name: Install ufw firewall
+          apt: name=ufw state=present
+
+        - name: Enable and start firewall service
+          service: name=ufw state=started enabled=yes
+
+        - name: Enable firewall and deny incoming requests
+          ufw: state=enabled policy=deny logging=on
+
+        - name: Allow OpenSSH service through firewall
+          ufw: rule=allow name=OpenSSH
+
+    - name: NETWORKING TOOLS INSTALLATION
+      tags: networking
+      block:
+        - name: Copy packettracer.deb file
+          tags: packettracer
+          copy:
+            src: ./packages/packettracer.deb
             dest: /home/admin/
             owner: admin
             group: admin
-            mode: '0664'
+            mode: 0664
 
-        - name: Install vscode.deb
-          apt: deb=/home/admin/vscode.deb
+        - name: Install packettracer.deb
+          tags: packettracer
+          apt: deb=/home/admin/packettracer.deb
 
-    - name: Wireshark
-      tags: wireshark
-      block:
         - name: Install WireShark
+          tags: wireshark
           apt: name=wireshark state=present
 
         - name: Add wireshark group
+          tags: wireshark
           group: name=wireshark state=present
 
         - name: Add guest user to wireshark group
+          tags: wireshark
           user:
             name: guest
             groups: wireshark
             append: yes
 
-        - name: Add debian user to wireshark group
-          user:
-            name: debian
-            groups: wireshark
-            append: yes
-
-        - name: wireshark setuid
+        - name: Wireshark setuid
           ansible.builtin.debconf:
             name: wireshark-common
             question: wireshark-common/install-setuid
@@ -76,169 +169,17 @@
             vtype: boolean
           register: reconfigure_changed
 
-        - name: make debconf changes active
+        - name: Make debconf changes active for Wireshark
           ansible.builtin.command:
             cmd: "dpkg-reconfigure wireshark-common"
           environment:
             DEBIAN_FRONTEND: noninteractive
           when: reconfigure_changed.changed
 
-
-    - name: Install command line tools
-      tags: command_line
-      apt:
-        name:
-          - htop
-          - neofetch
-          - tree
-          - vim
-
-    - name: Install git
-      tags: git
-      apt:
-        name:
-          - git
-          - gitg
-
-    - name: Add admin and guest users
+    - name: JAVA DEVELOPEMENT TOOLS INSTALLATION
+      tags: java
       block:
-        - name: Add guest user
-          tags: users,guest
-          user:
-            name: guest
-            comment: Guest
-            uid: 1040
-            shell: /bin/bash
-            password: "$6$f.3g1cc1i/7KZNfc$T0.svXQuiNVwEA91XzINK1MjVtOy80/aJTCcgPNoSVqTDxZGm1559uGS5i.H1xPPcrU4KldAbQjXyseqtMqsx1"
-
-        - name: Add admin user
-          tags: users,admin
-          user:
-            name: admin
-            comment: Admin
-            uid: 1050
-            shell: /bin/bash
-            password: "{{ admin_password }}"
-            groups: sudo
-            append: yes
-    
-    - name: Setup SSH server and keys
-      block:
-        - name: Copy authorized keys to admin ssh directory
-          tags: ssh,openssh,authorized_keys
-          copy:
-            src: ./ssh/authorized_keys
-            dest: /home/admin/.ssh/
-            owner: admin
-            group: admin
-            mode: "0644"
-
-        # TODO: disable SSH password login
-
-    - name: Install and configure firewall
-      tags: firewall,ufw
-      block:
-        - name: Install ufw firewall
-          apt: name=ufw state=present
-
-        - name: Enable firewall and deny incoming connections
-          ufw:
-            state: "enabled"
-            policy: "deny"
-            logging: "on"
-
-        - name: Allow OpenSSH service
-          ufw:
-            rule: allow
-            name: OpenSSH
-
-    - name: Install and configure MariaDB
-      tags: database,mariadb
-      block:
-        - name: Install MariaDB
-          tags: database,mariadb
-          apt:
-            name:
-              - mariadb-server
-              - mariadb-client
-            state: present
-
-        - name: Enable and start MariaDB service
-          tags: database,mariadb
-          service:
-            name: mariadb
-            state: started
-            enabled: yes
-
-        - name: Install PyMySQL library
-          tags: database,mariadb
-          apt: name=python3-pymysql state=present
-
-        - name: Create guest database
-          tags: database,mariadb
-          community.mysql.mysql_db:
-            login_host: localhost
-            login_user: root
-            login_password: root
-            name: guest_db
-            state: present
-
-        - name: Create guest user
-          community.mysql.mysql_user:
-            login_host: localhost
-            login_user: root
-            login_password: root
-            name: guest
-            state: present
-            password: guest
-            priv:
-              'guest_db.*': 'ALL,GRANT'
-
-        - name: Install adminer
-          tags: adminer
-          apt: name=adminer state=present
-
-        - name: Enable apache2 service
-          tags: adminer
-          service:
-            name: apache2
-            state: started
-            enabled: yes
-
-        - name: Enable adminer apache configuration
-          tags: adminer
-          shell: a2enconf adminer
-
-        - name: Reload apache2 service after enabling adminer configuration
-          tags: adminer
-          service:
-            name: apache2
-            state: reloaded
-
-    - name: Install SQLite and SQLite browser
-      tags: database,sqlite
-      apt:
-        name:
-          - sqlite3
-          - sqlite3-doc
-          - sqlitebrowser
-
-    - name: Install C developement tools
-      block:
-        - name: Install build-essential and make
-          apt:
-            name:
-              - build-essential
-              - make
-            state: present
-
-        - name: Install Codeblocks
-          apt: name=codeblocks state=present
-
-    - name: Install Java developement tools
-      tags: java,openjdk
-      block:
-        - name: Install openJDK
+        - name: Install OpenJDK 17
           apt:
             name:
               - openjdk-17-jdk
@@ -273,28 +214,54 @@
             group: root
             mode: 0776
 
+    - name: Install C developement tools
+      tags: c
+      apt:
+        name:
+          - make
+          - build-essential
+          - codeblocks
+        state: present
 
-    - name: Install Cisco Packet Tracer
-      tags: packettracer,pt
+    - name: Install Microsoft Visual Studio Code
+      tags: vscode
       block:
-        - name: Copy packettracer.deb file
+        - name: Copy vscode.deb file
           copy:
-            src: ./packages/packettracer.deb
+            src: ./packages/vscode.deb
             dest: /home/admin/
             owner: admin
             group: admin
             mode: 0664
 
-        - name: Install packettracer.deb
-          apt: deb=/home/admin/packettracer.deb
+        - name: Install vscode.deb
+          apt: deb=/home/admin/vscode.deb
+  
+    - name: CRON JOBS
+      tags: crons
+      block:
+        - name: Add cron job for purging guest home directory
+          tags: cron_purge_home
+          cron:
+            name: "a job for purging guest home folder on reboot"
+            special_time: reboot
+            job: "rm -rf /home/guest/*"
+            state: present
 
-    - name: Install extra packages
-      tags: extra,extra_packages
+    - name: Install extra utilities
       apt:
         name:
+          - htop
+          - neofetch
+          - tree
+          - vim
+          - git
+          - gitg
           - vlc
           - chromium
           - gimp
           - inkscape
           - mypaint
           - filezilla
+        state: present
+
