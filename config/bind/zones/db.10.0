@@ -66,3 +66,29 @@ $TTL	604800
 24.5	IN	PTR	pc24.lab5.	
 25.5	IN	PTR	pc25.lab5.	
 
+; lab6
+1.6	    IN  PTR pc1.lab6.	
+2.6	    IN	PTR	pc2.lab6.	
+3.6	    IN	PTR	pc3.lab6.	
+4.6	    IN	PTR	pc4.lab6.	
+5.6	    IN	PTR	pc5.lab6.	
+6.6	    IN	PTR	pc6.lab6.	
+7.6	    IN	PTR	pc7.lab6.	
+8.6	    IN	PTR	pc8.lab6.	
+9.6	    IN	PTR	pc9.lab6.	
+10.6	IN	PTR	pc10.lab6.	
+11.6	IN	PTR	pc11.lab6.	
+12.6	IN	PTR	pc12.lab6.	
+13.6	IN	PTR	pc13.lab6.	
+14.6	IN	PTR	pc14.lab6.	
+15.6	IN	PTR	pc15.lab6.	
+16.6	IN	PTR	pc16.lab6.	
+17.6	IN	PTR	pc17.lab6.	
+18.6	IN	PTR	pc18.lab6.	
+19.6	IN	PTR	pc19.lab6.	
+20.6	IN	PTR	pc20.lab6.	
+21.6	IN	PTR	pc21.lab6.	
+22.6	IN	PTR	pc22.lab6.	
+23.6	IN	PTR	pc23.lab6.	
+24.6	IN	PTR	pc24.lab6.	
+25.6	IN	PTR	pc25.lab6.	

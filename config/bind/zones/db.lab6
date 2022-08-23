@@ -1,0 +1,37 @@
+$TTL	604800
+@	IN	SOA	s1.servers. root.s1.servers. (
+			      6		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+; name server
+@	IN	NS	s1.servers.
+
+; lab6
+pc1.lab6.	IN	A   10.0.6.1
+pc2.lab6.	IN	A	10.0.6.2
+pc3.lab6.	IN	A	10.0.6.3
+pc4.lab6.	IN	A	10.0.6.4
+pc5.lab6.	IN	A	10.0.6.5
+pc6.lab6.	IN	A	10.0.6.6
+pc7.lab6.	IN	A	10.0.6.7
+pc8.lab6.	IN	A	10.0.6.8
+pc9.lab6.	IN	A	10.0.6.9
+pc10.lab6.	IN	A	10.0.6.10
+pc11.lab6.	IN	A	10.0.6.11
+pc12.lab6.	IN	A	10.0.6.12
+pc13.lab6.	IN	A	10.0.6.13
+pc14.lab6.	IN	A	10.0.6.14
+pc15.lab6.	IN	A	10.0.6.15
+pc16.lab6.	IN	A	10.0.6.16
+pc17.lab6.	IN	A	10.0.6.17
+pc18.lab6.	IN	A	10.0.6.18
+pc19.lab6.	IN	A	10.0.6.19
+pc20.lab6.	IN	A	10.0.6.20
+pc21.lab6.	IN	A	10.0.6.21
+pc22.lab6.	IN	A	10.0.6.22
+pc23.lab6.	IN	A	10.0.6.23
+pc24.lab6.	IN	A	10.0.6.24
+pc25.lab6.	IN	A	10.0.6.25
+
