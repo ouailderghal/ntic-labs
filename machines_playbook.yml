@@ -1,5 +1,5 @@
 ---
-- hosts: lab5
+- hosts: lab4
   user: debian
   become: yes
 
@@ -145,6 +145,7 @@
         - name: Install packettracer.deb
           tags: packettracer
           apt: deb=/home/admin/packettracer.deb
+          ignore_errors: yes
 
         - name: Install WireShark
           tags: wireshark
