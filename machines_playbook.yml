@@ -1,5 +1,5 @@
 ---
-- hosts: lab5
+- hosts: lab6
   user: debian
   become: yes
 
@@ -12,6 +12,26 @@
     - name: Set hostname
       tags: hostname
       hostname: name="{{ hostname }}"
+
+    - name: SYSTEM UPDATE AND UPGRADE
+      tags: update,upgrade
+      block:
+        - name: Copy sources.list file
+          tags: sources.list
+          copy:
+            src: ./config/apt/sources.list
+            dest: /etc/apt/sources.list
+            owner: root
+            group: root
+            backup: yes
+
+        - name: Update cache and full system upgrade
+          tags: update,upgrade,cache_update
+          apt:
+            update_cache: yes
+            upgrade: dist
+            cache_valid_time: 3600
+            force_apt_get: yes
 
     - name: DATE AND TIME CONFIGURATION
       tags: datetime
@@ -28,18 +48,6 @@
           tags: ntp
           service: name=ntp state=started enabled=yes
 
-    - name: SYSTEM UPDATE AND UPGRADE
-      tags: update,upgrade
-      block:
-        - name: Copy sources.list file
-          tags: sources.list
-          copy:
-            src: ./config/apt/sources.list
-            dest: /etc/apt/sources.list
-            owner: root
-            group: root
-            backup: yes
-
     - name: Copy bash configuration
       tags: bash,bashrc
       copy:
@@ -51,14 +59,6 @@
       with_items:
         - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
         - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
-
-    - name: Update cache and full system upgrade
-      tags: update,upgrade,cache_update
-      apt:
-        update_cache: yes
-        upgrade: dist
-        cache_valid_time: 3600
-        force_apt_get: yes
 
   tasks:
     - name: USER CREATION (ADMINISTRATOR, GUEST)
