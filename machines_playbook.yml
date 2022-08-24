@@ -1,5 +1,6 @@
 ---
-- hosts: lab6
+#- hosts: lab6
+- hosts: machines
   user: debian
   become: yes
 
@@ -8,7 +9,12 @@
       keyboard_model: pc105
       keyboard_layout: fr
 
-  pre_tasks: 
+  pre_tasks:
+    - name: x
+      tags: x
+      debug:
+        var: " {{ ansible_facts['memory_mb']['real']['total'] }} "
+
     - name: Set hostname
       tags: hostname
       hostname: name="{{ hostname }}"
@@ -293,6 +299,14 @@
             job: "rm -rf /home/guest/*"
             state: present
 
+        - name: Add cron job for resetting XFCE guest configuration files
+          tags: cron_reset_xfce
+          cron:
+            name: "a job for ressetting XFCE guest configuration files on reboot"
+            special_time: reboot
+            job: "rm -rf /home/guest/.config/xfce4/; cp -r /etc/xdg/xfce4-defaults/ /home/guest/.config/xfce4/; chown -R guest:guest /home/guest/.config/xfce4/"
+            state: present
+
     - name: Install extra utilities
       tags: extra
       apt:
@@ -310,5 +324,6 @@
           - mypaint
           - filezilla
           - numlockx
+          - dosbox
         state: present
 
