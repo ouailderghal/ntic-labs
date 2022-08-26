@@ -1,6 +1,5 @@
 ---
-#- hosts: lab6
-- hosts: machines
+- hosts: lab4
   user: debian
   become: yes
 
@@ -13,7 +12,7 @@
     - name: x
       tags: x
       debug:
-        var: " {{ ansible_facts['memory_mb']['real']['total'] }} "
+        var: " {{ ansible_facts['default_ipv4']['interface'] }} "
 
     - name: Set hostname
       tags: hostname
@@ -66,7 +65,83 @@
         - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
         - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
 
+    - name: XFCE CONFIGURATION
+      tags: xfce
+      block:
+        - name: Copy XFCE configuration files for guest user
+          copy:
+            src: ./config/xfce4.zip
+            dest: /opt
+            owner: root
+            group: root
+
+        - name: Unarchive xfce4.zip
+          unarchive:
+            src: /opt/xfce4.zip
+            dest: /opt
+            remote_src: yes
+
+        - name: Copy wallpaper
+          copy:
+            src: ./config/wallpapers/ntic-wallpaper.jpg
+            dest: /usr/share/backgrounds/xfce/
+            owner: root
+            group: root
+            mode: 0644
+
   tasks:
+    - name: CONKY CONFIGURATION
+      tags: conky
+      block:
+        - name: Install Conky
+          apt:
+            name:
+              - conky
+              - conky-all
+            state: present
+
+        - name: Copy Conky configuration file
+          template:
+            src: ./templates/conky.conf.j2
+            dest: /etc/conky/conky.conf
+            owner: root
+            group: root
+            mode: '0644'
+
+    - name: ZABBIX AGENT
+      tags: zabbix
+      block:
+        - name: Add Zabbix repository
+          apt:
+            deb: "https://repo.zabbix.com/zabbix/6.2/debian/pool/main/z/zabbix-release/zabbix-release_6.2-1%2Bdebian11_all.deb"
+
+        - name: Update cache
+          apt:
+            update_cache: yes
+            cache_valid_time: 3600
+            force_apt_get: yes
+
+        - name: Install Zabbix Agent
+          apt:
+            name:
+              - zabbix-agent2
+              - zabbix-agent2-plugin-mongodb
+            state: present
+
+        - name: Copy Zabbix Agent configuration file
+          template:
+            src: ./templates/zabbix_agent2.conf.j2
+            dest: /etc/zabbix/zabbix_agent2.conf
+            owner: root
+            group: root
+            mode: '0644'
+
+        - name: Allow Zabbix agent port through firewall
+          ufw:
+            rule: allow
+            port: 10050
+            proto: tcp
+
     - name: USER CREATION (ADMINISTRATOR, GUEST)
       tags: users
       block:
@@ -291,20 +366,21 @@
     - name: CRON JOBS
       tags: crons
       block:
+        - name: Copy cron scripts
+          tags: cron_scripts
+          copy:
+            src: ./scripts/cron/
+            dest: /scripts/
+            owner: root
+            group: root
+            mode: 0700
+
         - name: Add cron job for purging guest home directory
           tags: cron_purge_home
           cron:
             name: "a job for purging guest home folder on reboot"
             special_time: reboot
-            job: "rm -rf /home/guest/*"
-            state: present
-
-        - name: Add cron job for resetting XFCE guest configuration files
-          tags: cron_reset_xfce
-          cron:
-            name: "a job for ressetting XFCE guest configuration files on reboot"
-            special_time: reboot
-            job: "rm -rf /home/guest/.config/xfce4/; cp -r /etc/xdg/xfce4-defaults/ /home/guest/.config/xfce4/; chown -R guest:guest /home/guest/.config/xfce4/"
+            job: "/scripts/purge_home.sh"
             state: present
 
     - name: Install extra utilities
@@ -325,5 +401,7 @@
           - filezilla
           - numlockx
           - dosbox
+          - zip
+          - unzip
         state: present
 
