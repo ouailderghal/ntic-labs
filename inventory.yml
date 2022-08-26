@@ -14,78 +14,103 @@ all:
             10.0.4.1:
               hostname: "pc1.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.2:
               hostname: "pc2.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.3:
               hostname: "pc3.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.4:
               hostname: "pc4.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.5:
               hostname: "pc5.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.6:
               hostname: "pc6.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.7:
               hostname: "pc7.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.8:
               hostname: "pc8.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.9:
               hostname: "pc9.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.10:
               hostname: "pc10.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.11:
               hostname: "pc11.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.12:
               hostname: "pc12.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.13:
               hostname: "pc13.lab4"
               admin_password: ""
+              interface_name: "enp2s0"
             10.0.4.14:
               hostname: "pc14.lab4"
               admin_password: ""
+              interface_name: "enp2s8"
             10.0.4.15:
               hostname: "pc15.lab4"
               admin_password: ""
+              interface_name: "enp2s0"
             10.0.4.16:
               hostname: "pc16.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.17:
               hostname: "pc17.lab4"
               admin_password: ""
+              interface_name: "enp2s0"
             10.0.4.18:
               hostname: "pc18.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.19:
               hostname: "pc19.lab4"
               admin_password: ""
+              interface_name: "enp2s0"
             10.0.4.20:
               hostname: "pc20.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.21:
               hostname: "pc21.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.22:
               hostname: "pc22.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.23:
               hostname: "pc23.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.24:
               hostname: "pc24.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
             10.0.4.25:
               hostname: "pc25.lab4"
               admin_password: ""
+              interface_name: "enp0s25"
 
         lab5:
           hosts:
@@ -242,3 +267,5 @@ all:
             10.0.6.25:
               hostname: "pc25.lab6"
               admin_password: ""
+      vars:
+        server_ip: "10.0.0.1"
