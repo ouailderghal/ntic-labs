@@ -72,3 +72,8 @@
             state: started
             enabled: yes
 
+    - name: SAMBA CONFIGURATION
+      tags: samba
+      block:
+        - name: Install samba
+          apt: name=samba state=present
