@@ -1,0 +1,20 @@
+---
+- name: install ufw
+  apt: name=ufw state=present
+
+- name: enable and run ufw service
+  service: name=ufw state=started enabled=yes
+
+- name: enable ufw and set policy
+  ufw: state=enabled policy=deny logging=on
+
+- name: ALLOW SERVICES
+  block:
+    - name: allow OpenSSH service
+      ufw: rule=allow name=OpenSSH
+
+    - name: allow TCP development ports
+      ufw: rule=allow port=8000:8005 proto=tcp
+
+    - name: allow UDP development ports
+      ufw: rule=allow port=8000:8005 proto=udp
