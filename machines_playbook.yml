@@ -196,6 +196,15 @@
             group: root
             backup: yes
 
+        - name: Enable passwordless login for sudo group
+          tags: sudo
+          lineinfile:
+            path: /etc/sudoers
+            state: present
+            regexp: '^%sudo'
+            line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+            validate: 'visudo -cf %s'
+
     - name: SSH CONFIGURATION
       tags: ssh
       block:
