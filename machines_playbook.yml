@@ -68,6 +68,13 @@
     - name: XFCE CONFIGURATION
       tags: xfce
       block:
+        - name: Remove light-locker
+          apt: name=light-locker state=absent
+
+        - name: Disable xflock4 command
+          shell:
+            cmd: "mv /usr/bin/xflock4 /usr/bin/xflock4.bk"
+
         - name: Copy XFCE configuration files for guest user
           copy:
             src: ./config/xfce4.zip
