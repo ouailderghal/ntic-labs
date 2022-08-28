@@ -1,283 +1,279 @@
 all:
-  hosts:
-
   children:
-    servers:
-      hosts:
-        10.0.0.1:
-          hostname: "s1.servers"
-
     machines:
       children:
         lab4:
           hosts:
             10.0.4.1:
-              hostname: "pc1.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.2:
-              hostname: "pc2.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.3:
-              hostname: "pc3.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.4:
-              hostname: "pc4.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.5:
-              hostname: "pc5.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.6:
-              hostname: "pc6.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.7:
-              hostname: "pc7.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.8:
-              hostname: "pc8.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.9:
-              hostname: "pc9.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
+              admin_password: $6$YBHPUrKQ.IGGhSMr$dOu7im8rf3pg7O8Rl2wxbaF5DiAxK5HXruA3hBCbEitR08xFqWlSaaYgsjSnfhuuV/QG7hV3JtHdfxiIS2QkL1
+              hostname: pc1.lab4
+              interface_name: enp0s25
             10.0.4.10:
-              hostname: "pc10.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.11:
-              hostname: "pc11.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.12:
-              hostname: "pc12.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.13:
-              hostname: "pc13.lab4"
-              admin_password: ""
-              interface_name: "enp2s0"
-            10.0.4.14:
-              hostname: "pc14.lab4"
-              admin_password: ""
-              interface_name: "enp2s8"
-            10.0.4.15:
-              hostname: "pc15.lab4"
-              admin_password: ""
-              interface_name: "enp2s0"
-            10.0.4.16:
-              hostname: "pc16.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.17:
-              hostname: "pc17.lab4"
-              admin_password: ""
-              interface_name: "enp2s0"
-            10.0.4.18:
-              hostname: "pc18.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.19:
-              hostname: "pc19.lab4"
-              admin_password: ""
-              interface_name: "enp2s0"
-            10.0.4.20:
-              hostname: "pc20.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.21:
-              hostname: "pc21.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.22:
-              hostname: "pc22.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.23:
-              hostname: "pc23.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.24:
-              hostname: "pc24.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
-            10.0.4.25:
-              hostname: "pc25.lab4"
-              admin_password: ""
-              interface_name: "enp0s25"
+              admin_password: $6$R4LM/neocRA4Mmwr$x53bpDMLQ.21xjZcfM7PPzr82zavDJmIda2SG9GOgCo5R6yHYlbPmMVamS.0zaVExES8ZEM39reAhQqnQSAxb.
+              hostname: pc10.lab4
+              interface_name: enp0s25
             10.0.4.100:
-              hostname: "teacher.lab4"
-              admin_password: ""
-              interface_name: ""
-
+              admin_password: $6$K8lAFQu8WVpJ1kDY$tCsi7Jbhg6lD9T2Uv.a9DalQOUVyaAuIdDIARkXpYa/L6/64io1bgKIaJT5j2ys9ghz1b2xz8A3VgF3iwcVKd0
+              hostname: teacher.lab4
+              interface_name: ''
+            10.0.4.11:
+              admin_password: $6$MHjcl4vPjJN3YIab$3uzvXlztncqs.wa4zfknoz.uHNpot6nEZuw2zwxKaUmStivUYtjdes2N6aQ6iUVtwUY7wueJLCGyNdN0uUeQq.
+              hostname: pc11.lab4
+              interface_name: enp0s25
+            10.0.4.12:
+              admin_password: $6$TVVCK10pbBaVOQev$5RuP8K9/SezH3FS4I9iRj.sjk2FoCGTjlxcVgWUK.yW6EDKR0O.kvxfIp9hOzqeApeoTfaYBabMU/.VxW0gN9/
+              hostname: pc12.lab4
+              interface_name: enp0s25
+            10.0.4.13:
+              admin_password: $6$cxgbhZriN1pyRIA7$Hi/.5/osUSKuLT.CEJ7786pHgnTv0kLbSlAKtA.CXUqfwCzMYtByScQkWSVYMJLMgv2y/nbSqX2bnPkKpEu00/
+              hostname: pc13.lab4
+              interface_name: enp2s0
+            10.0.4.14:
+              admin_password: $6$8Idn.JCxERxoyws7$27mgAHsEuXlCw7yVpdgjcIClAZCN.NaWfVzu6XbaGC50fUBK2v7o.2qCKgVdbV135bjjtmxW3mo7ogCiBdwNV1
+              hostname: pc14.lab4
+              interface_name: enp2s8
+            10.0.4.15:
+              admin_password: $6$60.b7T6/g2z8Dk.F$Z4hGiVEV5f5YV1bKkjiruaXAgaZBtgO8Wf3de3srkUEr9F4xENDaiQ6ik3X8KVM7vG0LaBDZEwS0KznN.D1uD/
+              hostname: pc15.lab4
+              interface_name: enp2s0
+            10.0.4.16:
+              admin_password: $6$L/VZFyf8ak7XwX3F$eXqYcnLrNHKf82CkBVa88JvPNq0G5OZ244kJGAWpVQhvlSTZo54ma.UJ/aPtob8PzrdG67cP0ETZuO5jX3wxf.
+              hostname: pc16.lab4
+              interface_name: enp0s25
+            10.0.4.17:
+              admin_password: $6$t1pZxg6YEks9mTrb$vnSsDROfEfju06KgYlLF9tFSW4YrLUcB575DAI2NNZ5sVGEwZ7a/h4rSSVVvwLxlHiThnj82cFA2rONImsHVt/
+              hostname: pc17.lab4
+              interface_name: enp2s0
+            10.0.4.18:
+              admin_password: $6$L5dHiuus7csCOHL6$YdEGJTe5wTYP249mGs7joldcEXic898AOAqmmSACuWGDfdDitWYRnplDZ7zlGuE4GvBwSyZx.pFU4ra0lmtti.
+              hostname: pc18.lab4
+              interface_name: enp0s25
+            10.0.4.19:
+              admin_password: $6$Y2GDIOiRWFEw6g/2$/OkC6phFQ0L88.w/0BDWLb8P/4wbF9jZ5GZpnDIXwv3utMrqTTPT3PMRVBHBdWdfmnieC.xVNzEs7JwbebseL/
+              hostname: pc19.lab4
+              interface_name: enp2s0
+            10.0.4.2:
+              admin_password: $6$5kO6cy0w9WvwT8eI$KCMHKApNhUhPKXGyE8cxLuSPfZrzXIxPiyLrrkAK/VnLJ79u8airh2sY20YqSiH3STQKgfmvyvWk8emlEYEyG.
+              hostname: pc2.lab4
+              interface_name: enp0s25
+            10.0.4.20:
+              admin_password: $6$ZACkgd.wpN.lTCbF$z0QWZQZvhjWAcGlQOhNDGeWS7ODEws7CS9aWo7zyZX5NmMrEmNHyCJ.PHyG6.FlqnZsbh08guAea4BaUZ4AqZ/
+              hostname: pc20.lab4
+              interface_name: enp0s25
+            10.0.4.21:
+              admin_password: $6$KAPPLf.hHe0Rj7W0$5ldg/HYM2at.L2NmUwI4YYh2iXWu50wvaJ5lje1dmwyKMAAqsiWn/RntrGBTXdJGJWT96yPxPCQpg4ENjTMjR1
+              hostname: pc21.lab4
+              interface_name: enp0s25
+            10.0.4.22:
+              admin_password: $6$SEPpJT59dBBQDJ66$keODVKPY/NaqdVAj0QZDrRDpoylziMERK2921wHQTUBZjSsxZU2wrhWSLEomjNnYSeql0TwY96YRndeUdHGw6.
+              hostname: pc22.lab4
+              interface_name: enp0s25
+            10.0.4.23:
+              admin_password: $6$y45.OvELHF7SKEV.$f5OyUevQ3C137J.QssJW5XTwyg8bjVjomrRJiGSIqPE9LO7xTc2Z9Mi5pdyU8TfS8Gd.e3HAbv.9YSSlE6Km8.
+              hostname: pc23.lab4
+              interface_name: enp0s25
+            10.0.4.24:
+              admin_password: $6$uPkXmgjRA1wJhNXO$Ymscyld9gltaGRscsHbDgk7FN5ovgaeODFwDIXLrKfndsfsQJ6jEh29lKeGkOVpeWsvWJUBvC894QFgUejCR3.
+              hostname: pc24.lab4
+              interface_name: enp0s25
+            10.0.4.25:
+              admin_password: $6$/sqgbEddmZBHQtwO$9yXkAMxqAIPqe5K42BV25krZjKxyKcxjQvy1xQ/GGCG9VeD3xE2RgoqKPdPCLG81plM/ECpn8ESA8hC1RbCX60
+              hostname: pc25.lab4
+              interface_name: enp0s25
+            10.0.4.3:
+              admin_password: $6$qfczmyY2.KSauto8$R8jinJnCDSx8/Q2pLYX1XKCvmOe7Wr0AG3SXyPy6.oYr2vS615tfk.RgMwdZN4qmq6E4glyN4zfWNPtjdqZJV1
+              hostname: pc3.lab4
+              interface_name: enp0s25
+            10.0.4.4:
+              admin_password: $6$cxKbyUfydcwUhSur$WOC7gWfdTrMYKXnCZasmVSY9d7UKOZ4IEpjyJDUOf8D8bEIGNkesGHVpuDHd9oHWpFA2ajB/.uZl8C3ScpNI20
+              hostname: pc4.lab4
+              interface_name: enp0s25
+            10.0.4.5:
+              admin_password: $6$0CtpD01avACaNy9k$jXWWJ/qTjdw.lf5BRBze4ncSEXGZeQoA.PBEKuY083za4bu5gUVdWI8uQMkAZQax8.Nkiz//s8b3g8CDsnqJi1
+              hostname: pc5.lab4
+              interface_name: enp0s25
+            10.0.4.6:
+              admin_password: $6$dthxB36FdKv80c2f$9YNcfMXQwvcgd8VEudioA6y2QOSvoP5Qws.RFE0yCghHn13xaT5rmgL4MgcCPgwarbOLDndiZrUnUruA8wy8B/
+              hostname: pc6.lab4
+              interface_name: enp0s25
+            10.0.4.7:
+              admin_password: $6$POKf7.RgXLmBd9lA$S2ljfNy7mYEo9ttsJj5tPdO2wvCDNJbxvI6b9on7VygroNTRgB5d9PFNBinm8L8Jg/DNZYMc7cD.cYv88S34D1
+              hostname: pc7.lab4
+              interface_name: enp0s25
+            10.0.4.8:
+              admin_password: $6$NcksBa5fcoss4C1e$o.XE6WU2DbAeTCkJjaUWnGHP2g4/4FyR.BtZZQwN5EupM0oiGJfS4NhB9.BrsDc.kPPvSCnFXRrqX3VSA9HHW0
+              hostname: pc8.lab4
+              interface_name: enp0s25
+            10.0.4.9:
+              admin_password: $6$fX2.Pz9VgWxZocvj$92HzHrG/rbvi.8vfkxHg02SB/cfcIFUoNGeT1cpduImUxzchWb2rWm8LqI08.sgjebwg92cxXjSFUJ/WfAxcC1
+              hostname: pc9.lab4
+              interface_name: enp0s25
         lab5:
           hosts:
             10.0.5.1:
-              hostname: "pc1.lab5"
-              admin_password: ""
-            10.0.5.2:
-              hostname: "pc2.lab5"
-              admin_password: ""
-            10.0.5.3:
-              hostname: "pc3.lab5"
-              admin_password: ""
-            10.0.5.4:
-              hostname: "pc4.lab5"
-              admin_password: ""
-            10.0.5.5:
-              hostname: "pc5.lab5"
-              admin_password: ""
-            10.0.5.6:
-              hostname: "pc6.lab5"
-              admin_password: ""
-            10.0.5.7:
-              hostname: "pc7.lab5"
-              admin_password: ""
-            10.0.5.8:
-              hostname: "pc8.lab5"
-              admin_password: ""
-            10.0.5.9:
-              hostname: "pc9.lab5"
-              admin_password: ""
+              admin_password: $6$khmEl1Y0pfWSxMSx$VsCP8E7yRqIN0SMe9GFQffx8tUuPSFuCH9ss976VL5B0dW7EGPV3guLAF/LiTwM5dgmu9807eyhuvGv9JLIbL1
+              hostname: pc1.lab5
             10.0.5.10:
-              hostname: "pc10.lab5"
-              admin_password: ""
-            10.0.5.11:
-              hostname: "pc11.lab5"
-              admin_password: ""
-            10.0.5.12:
-              hostname: "pc12.lab5"
-              admin_password: ""
-            10.0.5.13:
-              hostname: "pc13.lab5"
-              admin_password: ""
-            10.0.5.14:
-              hostname: "pc14.lab5"
-              admin_password: ""
-            10.0.5.15:
-              hostname: "pc15.lab5"
-              admin_password: ""
-            10.0.5.16:
-              hostname: "pc16.lab5"
-              admin_password: ""
-            10.0.5.17:
-              hostname: "pc17.lab5"
-              admin_password: ""
-            10.0.5.18:
-              hostname: "pc18.lab5"
-              admin_password: ""
-            10.0.5.19:
-              hostname: "pc19.lab5"
-              admin_password: ""
-            10.0.5.20:
-              hostname: "pc20.lab5"
-              admin_password: ""
-            10.0.5.21:
-              hostname: "pc21.lab5"
-              admin_password: ""
-            10.0.5.22:
-              hostname: "pc22.lab5"
-              admin_password: ""
-            10.0.5.23:
-              hostname: "pc23.lab5"
-              admin_password: ""
-            10.0.5.24:
-              hostname: "pc24.lab5"
-              admin_password: ""
-            10.0.5.25:
-              hostname: "pc25.lab5"
-              admin_password: ""
+              admin_password: $6$oei6wPsKfpqtjw7p$Z62lyiSra/GUwxhMT.Dp8gTV/rRavlgk/8RdDUl1sS2RWwj57ZF/.fg3WeeKPQQWYkU0K5bwb3B1kMyjDYzSP/
+              hostname: pc10.lab5
             10.0.5.100:
-              hostname: "teacher.lab5"
-              admin_password: ""
-              interface_name: ""
-
+              admin_password: $6$jVRM3ywHZ5QSfxnk$5y1kkNFoMeIr5q1rmg646.BRBtT7Yh0nT8By1npm0YUrrHgkdYglYHsUUYcRXci6XkateH/4SkPCuhNgKQBK/1
+              hostname: teacher.lab5
+              interface_name: ''
+            10.0.5.11:
+              admin_password: $6$CCMWtLzV3fnUAqKT$5MNAVNfYeJX8JfeluxP69qBNp4tLzIBGn4SbiZha59N7XPLC5Y.FWeqfUpOU3.HXcHoRyeH4rBtvy3MFR4Yv01
+              hostname: pc11.lab5
+            10.0.5.12:
+              admin_password: $6$aaJtQXtqNmYSfqC6$okyoW/BKgw/wkK4SOrHcFU883WIjFO0uGIm8Q5YpuVoZWCUIjFjk59wS8WyhU6AIXy5kgYoFhrH/ky7d1xs4h/
+              hostname: pc12.lab5
+            10.0.5.13:
+              admin_password: $6$jDkgsdJUlgFJ7.jr$L0cPwujq0O35lBVPR2gOc8EDJZE8EQUGyetS57fV/j5tBixkefTcN8G7IQnc29Q4ZpYuLflaemfswNLq0exhe0
+              hostname: pc13.lab5
+            10.0.5.14:
+              admin_password: $6$hwMfIZo3vZdNzlU.$7RdK7Hh6kTIZ7UhXK5jsYDsSE1K00vdBozjXOmp3C59AzW3MigpTyV/9dJbbuAbduOraZ0CEKWgmTff2r9ZXP/
+              hostname: pc14.lab5
+            10.0.5.15:
+              admin_password: $6$w6g5iHWIbmBfo/Qf$FMdrCzyf1RUWGQn3T6wi0rL1zMQLhD55fWLMW5TP27YONgoBmpKLM8mhEKFEgsmQX6egUKO0kxq4elYNW3OiW.
+              hostname: pc15.lab5
+            10.0.5.16:
+              admin_password: $6$kswxXKGFyZYGM.LI$oAA.NfoEVePdBq3QdmZhvjZRz2Qmrn00tszoKxnIWVeAPGFVXP7qSala6uUv9sarH2hl4j49Tql0EFxeN/93i0
+              hostname: pc16.lab5
+            10.0.5.17:
+              admin_password: $6$rmQTp8kS9Rvu3fLL$/vscxPxEdaphtXdlAO2kpA.kasKxMFg7OjuCJYSw2ppNkDcS.1EvFUcy7gGeb5ukxq4jL266XExVzsEZWsV6..
+              hostname: pc17.lab5
+            10.0.5.18:
+              admin_password: $6$iSYMr.94DJrXamXU$zsI0.XnN5c6t00DpZ6BpwB/32pqBQQT5YQUGJV3YN50Pi000Dpk/toDnNeKI8JvpIVUMT4yZq88i2Y8gSy5/C/
+              hostname: pc18.lab5
+            10.0.5.19:
+              admin_password: $6$7wARdgCx2Jp2sfGm$b2.wgyOjdhV1WGc78Iw0zKIKMPbt0P1maUHK29aPFVb5202LxYhbYe6jj3bl2Nv1FbKnlgC8yFF.LkOTHBhBP0
+              hostname: pc19.lab5
+            10.0.5.2:
+              admin_password: $6$wdq9Ai0RxskTjhU9$YnPKkoVmhRGmHgcRspQ2b5DNVFOoEDaZqmWJCakuWciy90pePCZcofPYVhroKqu5pVhsmP0wz9o7aI2fKNO2K/
+              hostname: pc2.lab5
+            10.0.5.20:
+              admin_password: $6$S.xRzqUXxvbMfGf6$FpBpSCRADAOPi4kkWoFHthvAu1S4xsrrRM6.Fqu7uunhcFgj15Zw.xoOFfawk5GKzBNDSOUZUZhMyRO2a2Qwa/
+              hostname: pc20.lab5
+            10.0.5.21:
+              admin_password: $6$pf8cktiNI4SLpQJn$kWqerKJC7Xs.sq97JXYmeW3L6YMvGAXaqA/LanTUW1XE9rdmdPGMvoPgG4VGrko64WYRRTqMZaRMnt4P1lGrr/
+              hostname: pc21.lab5
+            10.0.5.22:
+              admin_password: $6$iCEFBAVoaSGhL5oB$E9Npj2jVOct0my4dDLbc21rNVkYcXF20wi5xNE3MqTkWcnz.b31OP1ryv7Na6eioi1bHQWOtcP2Cm0y6GFkiL.
+              hostname: pc22.lab5
+            10.0.5.23:
+              admin_password: $6$olRfs1Kk9o6pAuya$taB.FJpCD9TTJakqYpPat9MMEgaYWoS.rwz4wVsxycUDc/nApWF1MFLwAInWXD.jmWFaM1vj4C4KbkPz9cGjG0
+              hostname: pc23.lab5
+            10.0.5.24:
+              admin_password: $6$3kECWHW5P8UOkjdG$wNE2pqKNd5j91EAJcj5rQVFBf0Ax0LuvTG0GMGMCAEJWIYHJFlNlRWEGvzdmIuR4Lq3i0sNnAMsBqIBgiVWF3/
+              hostname: pc24.lab5
+            10.0.5.25:
+              admin_password: $6$xO5OLdBOiiWjcBVS$uJZYAG2mD07ruorce9tpLkstK6Sq9lGnjxPLGmy73zlharpGEsGycGHO7HwAGQRJrFoMQBOxAq/PhiPWkNKdW1
+              hostname: pc25.lab5
+            10.0.5.3:
+              admin_password: $6$.RMhcZWIObidVCwB$ENAetB.9pN/L.b1lHsJ5BohvtGO4QDDTw3BKBFyOadgzmsC5LUpunoX3KrF4ULBdNdliP28Es8MJ0dCxOZ/SN0
+              hostname: pc3.lab5
+            10.0.5.4:
+              admin_password: $6$0Ct/khyqM18pv2.W$CGAGrLOZwx2MwwetswYpST.qtPwRz6AUOeXxuCYZLWB7ZTwJdKECCfoLT9RgPLHaox6z/nKxQjNioEMCJ.fil/
+              hostname: pc4.lab5
+            10.0.5.5:
+              admin_password: $6$rHPFITQDsH4gs/2s$Max3ZqZEDD7pwPqOhH5gK/T3lMZeCcBSZBIvOEglwmV/4dvkD4L7Tlo.vlTgrIaufibyiq0e2zIcz3w/w9wDU1
+              hostname: pc5.lab5
+            10.0.5.6:
+              admin_password: $6$tNyVXh4lIO6J7zes$aFBmKqC/GnoZ.go0BbKsqUeR3GlPwKw5dr0BZ5RVkpK/lHAtD1XjxDDTbvE.pMrdQyhbNVVrqLw4iI81kN/Mz/
+              hostname: pc6.lab5
+            10.0.5.7:
+              admin_password: $6$tOVL5xrMuFHWDei5$Q5oWEwcDuYyPjRYH.rMwEGtUdre8OePDkDgEal17LJ.WtpMSX/wjUik4BV2hPhlqHb/c3xk5SK9lCiyp6WRgM.
+              hostname: pc7.lab5
+            10.0.5.8:
+              admin_password: $6$VA3bdOtj1jtk2sCj$9D/04KO2MDSJLqpDLr6k2FW9GBfcpYNEVHN5yB42oAObHSN4DwSheHti0vOZt6UoRwwoDJZ/0WJScikv0UtfN1
+              hostname: pc8.lab5
+            10.0.5.9:
+              admin_password: $6$PvmYGJUgLuixUB3Y$3wS.UoVTIYMIJfUzH0sQDcVvXloMwEdZfz38eplsxtmKDUKGM9jcAqim3mHT7XP7NUuumeik/wUjDS9Mk0rK2/
+              hostname: pc9.lab5
         lab6:
           hosts:
             10.0.6.1:
-              hostname: "pc1.lab6"
-              admin_password: ""
-            10.0.6.2:
-              hostname: "pc2.lab6"
-              admin_password: ""
-            10.0.6.3:
-              hostname: "pc3.lab6"
-              admin_password: ""
-            10.0.6.4:
-              hostname: "pc4.lab6"
-              admin_password: ""
-            10.0.6.5:
-              hostname: "pc5.lab6"
-              admin_password: ""
-            10.0.6.6:
-              hostname: "pc6.lab6"
-              admin_password: ""
-            10.0.6.7:
-              hostname: "pc7.lab6"
-              admin_password: ""
-            10.0.6.8:
-              hostname: "pc8.lab6"
-              admin_password: ""
-            10.0.6.9:
-              hostname: "pc9.lab6"
-              admin_password: ""
+              admin_password: $6$33ycV3klK1uqwDxR$Ncaap2MHnfxp.o0yrSnhpcucxStNBkxS1DvNvUf5Y9M.My3uoLRCvgAzzQC89Mk7M.6/izTDYlz3fOJXiybx00
+              hostname: pc1.lab6
             10.0.6.10:
-              hostname: "pc10.lab6"
-              admin_password: ""
-            10.0.6.11:
-              hostname: "pc11.lab6"
-              admin_password: ""
-            10.0.6.12:
-              hostname: "pc12.lab6"
-              admin_password: ""
-            10.0.6.13:
-              hostname: "pc13.lab6"
-              admin_password: ""
-            10.0.6.14:
-              hostname: "pc14.lab6"
-              admin_password: ""
-            10.0.6.15:
-              hostname: "pc15.lab6"
-              admin_password: ""
-            10.0.6.16:
-              hostname: "pc16.lab6"
-              admin_password: ""
-            10.0.6.17:
-              hostname: "pc17.lab6"
-              admin_password: ""
-            10.0.6.18:
-              hostname: "pc18.lab6"
-              admin_password: ""
-            10.0.6.19:
-              hostname: "pc19.lab6"
-              admin_password: ""
-            10.0.6.20:
-              hostname: "pc20.lab6"
-              admin_password: ""
-            10.0.6.21:
-              hostname: "pc21.lab6"
-              admin_password: ""
-            10.0.6.22:
-              hostname: "pc22.lab6"
-              admin_password: ""
-            10.0.6.23:
-              hostname: "pc23.lab6"
-              admin_password: ""
-            10.0.6.24:
-              hostname: "pc24.lab6"
-              admin_password: ""
-            10.0.6.25:
-              hostname: "pc25.lab6"
-              admin_password: ""
+              admin_password: $6$fzIYBwCxvToC5.QV$nX43zCru8ce/bJCbroPMN/ylfsK./zNWdZQkojMExdtOK.ev6p9jz1S91VE0QyUicJjvl9Bnk8tcKVSOUgaw0/
+              hostname: pc10.lab6
             10.0.6.100:
-              hostname: "teacher.lab6"
-              admin_password: ""
-              interface_name: ""
+              admin_password: $6$haCfzi4L7pwAsyCi$QMhMJmXV15g1yEXIoMGksBYDjEQLJavR.f6R5YZECmMB.zuEU0HkYnitZOjw7q37xLY7hqcAyX84sjeTYRtFU/
+              hostname: teacher.lab6
+              interface_name: ''
+            10.0.6.11:
+              admin_password: $6$fqVIVNaMlLgX1Szy$A7V88KOo1NyY3xueqyCSAa1wInAaVPU15CdfyfGQNug4N.yT9MLEgYZskZNnT0/TnBbQeOpm38y75Dcq8Exek/
+              hostname: pc11.lab6
+            10.0.6.12:
+              admin_password: $6$5euarfrZFkMvVGWx$x2/OCiMlw7lGUVo1u3ygS2gYlfawwEOjbgtk.WKv83G.x5wdz5kYm7QwlyzCGm8pynfCyVWS5gs6ZptFptuiM.
+              hostname: pc12.lab6
+            10.0.6.13:
+              admin_password: $6$riBYoelTx0pp94A5$BIEtGfY1Vh1wqQlEXzXEAdKxjsOQpi38SlRLLv9ehtWCAIq/cPNwbedobTuSAsOVTGGstyYnvJ6TEr/C.glRx0
+              hostname: pc13.lab6
+            10.0.6.14:
+              admin_password: $6$UIDwmLVG3wX6HHFr$DW5fxXRjb4BuS/b9BrvVdgbEgSrfzWfd0S2uP3O6DXrz/9lZBAuAA59ovuvcs7kt8KtMDcb7B61SXZhK7./K5.
+              hostname: pc14.lab6
+            10.0.6.15:
+              admin_password: $6$aUzAcFrMl5maSBYo$c9Z1y8ArAOklJ7YVWIiRrX1UsItkEM7Lr8dQ91PAlDFudwrf4gmHf1ohGGdP4W2gkvjtwqpD/Db.8xR01/g5r1
+              hostname: pc15.lab6
+            10.0.6.16:
+              admin_password: $6$OrCmarkuYwCji1rt$d4XqVzU.DDnP.nnjdfjLET/s./EkvaXJbjoEEQZ3pxMumuI1tbUs8o97i0AH.e2G3n7P7jNnMmIDMM2pTnhP80
+              hostname: pc16.lab6
+            10.0.6.17:
+              admin_password: $6$ibfsgDQI3J/KhfgT$2aQM7PMfFJGt8I18PeQJfIUqEjtiawcD6bYrwYhOdhuZQsJNNoMEh9r1lfjgRs4ef1DdZWV2xkrocc8whAzoE.
+              hostname: pc17.lab6
+            10.0.6.18:
+              admin_password: $6$UHiai.Bkja7cV9nz$2s1ai6Tua7x6u3mxlZfOorxK1JBB4S/bquRMzczCN96oyBHmQbtCQ6b2v/UzrCUkyguN2sOgkOBiuW57vPUYF/
+              hostname: pc18.lab6
+            10.0.6.19:
+              admin_password: $6$XmlqpmJbA6VOURiu$/vgVIJcYQXJ2cgyX6OQz2djUJWH.10V8G4FmP83ek4KywC5haGSAWeildS.BBduwleqq3ATFxSPDE//6OL5GT.
+              hostname: pc19.lab6
+            10.0.6.2:
+              admin_password: $6$X8QgGrIuvpZwHx9k$Q3CTl7lhtjL44fsB7h8Mb9rfJ//Aorq/J3hPZFXHeq.KXroHvA95SznIiR2Fyu/daWWcGjdeypP/2GQpNmlrd0
+              hostname: pc2.lab6
+            10.0.6.20:
+              admin_password: $6$.oHLHRI8W8MjnhjX$WpHs/7XM3AroGjlXy7TnqVfcoBxnA/7lsXoqt7B/GnDDzzfBaz31ZYMHQVrDwqZiZ0YbxPmhFh7wmRuk1xFOT1
+              hostname: pc20.lab6
+            10.0.6.21:
+              admin_password: $6$J8rqdR4iCq9gULrY$lzeogG6Tucw.9WDnW94XnxWY.TLGSGJkW7MOp3xneLyGfPOk57ruyK.RGvLpuhksnWxjQgXbApNmQNN86h.OR1
+              hostname: pc21.lab6
+            10.0.6.22:
+              admin_password: $6$zlQl.QM04.bKcW3e$Zi2DgByzMw4PjhQXzTAddN3dO18w/1jUHKjm6nV1ThYZKXDcl2wTl4bv1UVPt97xVosf.n3Y2jcn2oolwTKSh/
+              hostname: pc22.lab6
+            10.0.6.23:
+              admin_password: $6$tmZf/2mwDRb7LluH$mG9vEZOMo7/jVSiBOrpeYanpoOzjbDilK40A4IaHBCX9KIXALDbMxWFqB5N1Pyht9VokmjQFtIXg84/fN4Nar0
+              hostname: pc23.lab6
+            10.0.6.24:
+              admin_password: $6$CSK.WaRTp1b3Jtze$968MKs2gzzF7.TtiZt2VgqRiFL5gZq0VDAcqoZHsddzwSrCc0YglNqWXNOre/QHTjn/Jm7XHj.Kz2jJF8h4OR.
+              hostname: pc24.lab6
+            10.0.6.25:
+              admin_password: $6$tqWbbczhKkVBC4qY$kaOs7IRyXAGIQEub.XWgmdhxMygCqa3SvpywslZ2tw.cHtSzFHW5FWqq0ahyLhknsAYouAwFGeWiPhk6PxmS/1
+              hostname: pc25.lab6
+            10.0.6.3:
+              admin_password: $6$lVdXJTWQa3g1gfTw$ZYLkgFwrZLBbah6e5TfTmoF3OS.Aa29eM4BZTvX0pwBevBuRkDQ3ye87kRd.LTEydd8IbDWVCOchumtW5njFh/
+              hostname: pc3.lab6
+            10.0.6.4:
+              admin_password: $6$CZodlOUKxewpSndl$n4HawjDqE5cOgMph3IH0awHSHxi/aryrrcQ.SgLv0TuDHo/EWxms.rCrd3KI3GfGTy2CFEkOem4MxXh5lDpHb/
+              hostname: pc4.lab6
+            10.0.6.5:
+              admin_password: $6$HDFaRsHSRNNe6Clf$MdowugKUsOct4SmIaRsV2wzzkrvn16DvpFOpRGbdvE6BhqhM3Cg9OmlEvBKNa4rfrzlOeZH8KCY9E9fwZQp4S0
+              hostname: pc5.lab6
+            10.0.6.6:
+              admin_password: $6$OleVR.H6DXN/lIfa$VPbdw7BJkgceDM51aU2zeooIRD3wBXXH/xQeqOSzq9LA4pAsg4MMhYThH3yOg/DjYLJupYpgJE.d9r3RL7ugi.
+              hostname: pc6.lab6
+            10.0.6.7:
+              admin_password: $6$YLaGkTX691.9arT0$U5R0NViIi1ZrN.Ht/qavEDXLas32TfQC/oItkf4B9x42wB7I.XLQQ7DCw9wMRAxaDhYrwy0NSvlyyfIvWKtI4/
+              hostname: pc7.lab6
+            10.0.6.8:
+              admin_password: $6$br3PeOTAkFei7Jgr$vlgGHYL49IhgSuVZbwPvZApreW5vx3F2GfyennERAMVnzKuJJli1P8IJV5ETANwcn3/9Yg444TNoZyN8HgGNJ1
+              hostname: pc8.lab6
+            10.0.6.9:
+              admin_password: $6$t5e.C94RRcdx6I9a$dhDU95WO0CwOB9CNHXjoHqB8e/kkE5FpfinQtACRn529LH5CrAQmRtnhz0wKM2f6J7lnCURZbbGPzetXqljpT/
+              hostname: pc9.lab6
       vars:
-        server_ip: "10.0.0.1"
+        server_ip: 10.0.0.1
+    servers:
+      hosts:
+        10.0.0.1:
+          hostname: s1.servers
+  hosts: null
