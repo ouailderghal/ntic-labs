@@ -1,0 +1,55 @@
+---
+- name: create user
+  user:
+    name: guest
+    comment: guest
+    uid: 1040
+    shell: /bin/bash
+    home: /home/guest/
+    password: "{{ password }}"
+    skeleton: no
+    state: present
+
+- name: ensure that scripts directory exists
+  file:
+    path: /scripts
+    state: directory
+    owner: root
+    group: root
+    mode: 0744
+
+- name: copy purge home script
+  copy:
+    src: purge_guest_home.sh
+    dest: /scripts
+    owner: root
+    group: root
+    mode: 0755
+
+- name: copy purge home service
+  copy:
+    src: purge-guest-home.service
+    dest: /etc/systemd/system/
+    owner: root
+    group: root
+    mode: 0744
+
+- name: enable purge home service
+  systemd:
+    state: started
+    enabled: yes
+    daemon_reload: yes
+    name: purge-guest-home.service
+
+- name: ensure that lightdm is installed
+  apt: name=lightdm state=present
+  when: false
+
+- name: set ligthdm autologin
+  copy:
+    src: lightdm.conf
+    dest: /etc/lightdm/lightdm.conf
+    owner: root
+    group: root
+    backup: yes
+    mode: 0744

@@ -1,0 +1,11 @@
+[Unit]
+Description=Purge guest user home folder on system startup.
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/scripts/purge_guest_home.sh
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target
