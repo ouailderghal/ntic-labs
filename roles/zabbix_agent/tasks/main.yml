@@ -1,0 +1,32 @@
+---
+- name: add apt repository
+  apt: deb="{{ zabbix_agent_deb }}"
+
+- name: update apt cache
+  apt: update_cache=yes force_apt_get=yes
+
+- name: install agent
+  apt:
+    name:
+      - zabbix-agent2
+      - zabbix-agent2-plugin-mongodb
+    state: present
+
+- name: copy configuration file
+  template:
+    src: zabbix_agent2.conf.j2
+    dest: /etc/zabbix/zabbix_agent2.conf
+    owner: root
+    group: root
+
+- name: enable and run agent service
+  service:
+    name: zabbix-agent2
+    state: started
+    enabled: yes
+
+- name: allow port 10050
+  ufw:
+    rule: allow
+    port: 10050
+    proto: tcp
