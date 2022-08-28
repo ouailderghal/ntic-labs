@@ -9,4 +9,5 @@ rm -rf /home/guest/.config
 rm -Rf /home/guest/.*
 mkdir -p /home/guest/.config/
 cp -r /opt/xfce4 /home/guest/.config/
+cp -r /opt/autostart /home/guest/.config/
 chown -R guest:guest /home/guest/.config

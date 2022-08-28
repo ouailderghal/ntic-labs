@@ -74,19 +74,25 @@
         - name: Disable xflock4 command
           shell:
             cmd: "mv /usr/bin/xflock4 /usr/bin/xflock4.bk"
+          ignore_errors: yes
 
-        - name: Copy XFCE configuration files for guest user
+        - name: Remove old XFCE configuration files
+          file:
+            path: "{{ item }}"
+            state: absent
+          with_items:
+            - /opt/xfce4
+            - /opt/xfce4.zip
+
+        - name: Copy xfce4 and autostart configuration files
           copy:
-            src: ./config/xfce4.zip
-            dest: /opt
+            src: "{{ item }}"
+            dest: /opt/
             owner: root
             group: root
-
-        - name: Unarchive xfce4.zip
-          unarchive:
-            src: /opt/xfce4.zip
-            dest: /opt
-            remote_src: yes
+          with_items:
+            - ./config/xfce4
+            - ./config/autostart
 
         - name: Copy wallpaper
           copy:
@@ -406,13 +412,11 @@
             special_time: reboot
             job: "/scripts/purge_home.sh"
             state: absent
-            when: true
 
         - name: Remove old purge script
           file:
             path: /scripts/purge_home.sh
             state: absent
-            when: true
 
     - name: Install extra utilities
       tags: extra
