@@ -111,6 +111,10 @@ all:
               hostname: "pc25.lab4"
               admin_password: ""
               interface_name: "enp0s25"
+            10.0.4.100:
+              hostname: "teacher.lab4"
+              admin_password: ""
+              interface_name: ""
 
         lab5:
           hosts:
@@ -189,6 +193,10 @@ all:
             10.0.5.25:
               hostname: "pc25.lab5"
               admin_password: ""
+            10.0.5.100:
+              hostname: "teacher.lab5"
+              admin_password: ""
+              interface_name: ""
 
         lab6:
           hosts:
@@ -267,5 +275,9 @@ all:
             10.0.6.25:
               hostname: "pc25.lab6"
               admin_password: ""
+            10.0.6.100:
+              hostname: "teacher.lab6"
+              admin_password: ""
+              interface_name: ""
       vars:
         server_ip: "10.0.0.1"
