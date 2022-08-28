@@ -2,6 +2,8 @@ import argparse
 import string
 import secrets
 import yaml
+import crypt
+import json
 
 from pathlib import Path
 
@@ -28,15 +30,24 @@ def main() -> None:
     args = get_args()
     alphabet = string.ascii_lowercase + string.digits
 
-    plain_password = ''.join(secrets.choice(alphabet) for i in range(12))
     f_inventory = Path(args.inventory)
+    passwords_file = Path('./passwords.csv')
 
     with open(f_inventory) as f:
         inventory = yaml.load(f, Loader=yaml.SafeLoader)
-        print(inventory['all']['children']['machines']['children']['lab4']['hosts'])
+        labs = list(inventory['all']['children']['machines']['children'].keys())
+        # hosts = [inventory['all']['children']['machines']['children'][lab]['hosts'] for lab in labs]
 
-        # for host in inventory['all']['children']['machines']['children']['lab4']['hosts']:
-        #     print(host)
+        for lab in labs:
+            hosts = [inventory['all']['children']['machines']['children'][lab]['hosts'] for lab in labs]
+
+            for host in hosts:
+                print(json.dumps(host.key(), indent=2))
+
+        # for host in hosts:
+        #     plain_password = ''.join(secrets.choice(alphabet) for i in range(12))
+        #     hashed_password = crypt.crypt(plain_password)
+        #     hosts[host]['admin_password'] = hashed_password
 
 
 if __name__ == '__main__':

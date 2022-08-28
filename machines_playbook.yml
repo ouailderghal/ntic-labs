@@ -362,26 +362,41 @@
         - name: Install vscode.deb
           apt: deb=/home/admin/vscode.deb
           ignore_errors: yes
-  
-    - name: CRON JOBS
-      tags: crons
+
+    - name: PURGE GUEST DATA
+      tags: purge
       block:
-        - name: Copy cron scripts
-          tags: cron_scripts
+        - name: Copy purge home script and service file
           copy:
-            src: ./scripts/cron/
-            dest: /scripts/
+            src: "{{ item.src }}"
+            dest: "{{ item.dest }}"
             owner: root
             group: root
             mode: 0700
+          with_items:
+            - { src: ./scripts/purge_guest_home.sh, dest: /scripts/ }
+            - { src: ./config/services/purge-guest-home.service, dest: /etc/systemd/system/ }
 
-        - name: Add cron job for purging guest home directory
-          tags: cron_purge_home
+        - name: Enable purge guest home service
+          systemd:
+            state: started
+            enabled: yes
+            daemon_reload: yes
+            name: purge-guest-home.service
+
+        - name: disable cron job for purging guest home directory
           cron:
             name: "a job for purging guest home folder on reboot"
             special_time: reboot
             job: "/scripts/purge_home.sh"
-            state: present
+            state: absent
+            when: true
+
+        - name: Remove old purge script
+          file:
+            path: /scripts/purge_home.sh
+            state: absent
+            when: true
 
     - name: Install extra utilities
       tags: extra
