@@ -1,0 +1,12 @@
+---
+- hosts: machines
+  user: vagrant
+  become: yes
+
+  pre_tasks:
+    - name: Update apt cache
+      tags: update
+      apt: update_cache=yes force_apt_get=yes
+
+  roles:
+    - conky
