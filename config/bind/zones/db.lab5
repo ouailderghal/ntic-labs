@@ -35,3 +35,5 @@ pc23.lab5.	IN	A	10.0.5.23
 pc24.lab5.	IN	A	10.0.5.24
 pc25.lab5.	IN	A	10.0.5.25
 
+; teachers
+teacher.lab5.	IN	A	10.0.5.100

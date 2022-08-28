@@ -37,7 +37,8 @@ $TTL	604800
 22.4	IN	PTR	pc22.lab4.	
 23.4	IN	PTR	pc23.lab4.	
 24.4	IN	PTR	pc24.lab4.	
-25.4	IN	PTR	pc25.lab4.	
+25.4	IN	PTR	pc25.lab4.
+100.4   IN  PTR teacher.lab4.
 
 ; lab5
 1.5	    IN  PTR pc1.lab5.	
@@ -64,7 +65,8 @@ $TTL	604800
 22.5	IN	PTR	pc22.lab5.	
 23.5	IN	PTR	pc23.lab5.	
 24.5	IN	PTR	pc24.lab5.	
-25.5	IN	PTR	pc25.lab5.	
+25.5	IN	PTR	pc25.lab5.
+100.5   IN  PTR teacher.lab5.
 
 ; lab6
 1.6	    IN  PTR pc1.lab6.	
@@ -91,4 +93,5 @@ $TTL	604800
 22.6	IN	PTR	pc22.lab6.	
 23.6	IN	PTR	pc23.lab6.	
 24.6	IN	PTR	pc24.lab6.	
-25.6	IN	PTR	pc25.lab6.	
+25.6	IN	PTR	pc25.lab6.
+100.6   IN  PTR teacher.lab6.
