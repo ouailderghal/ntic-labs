@@ -418,6 +418,21 @@
             path: /scripts/purge_home.sh
             state: absent
 
+    - name: GRUB CONFIGURATION
+      tags: grub
+      block:
+        - name: Copy grub configuration file
+          copy:
+            src: ./config/grub/grub.cfg
+            dest: /etc/default/grub
+            owner: root
+            group: root
+            backup: yes
+
+        - name: Launch update-grub
+          shell:
+            cmd: "update-grub"
+
     - name: Install extra utilities
       tags: extra
       apt:
