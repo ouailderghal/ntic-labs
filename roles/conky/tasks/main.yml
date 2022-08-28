@@ -1,0 +1,24 @@
+---
+- name: install conky
+  apt:
+    name:
+      - conky
+      - conky-all
+    state: present
+
+- name: copy conky.conf
+  template:
+    src: conky.conf.j2
+    dest: /etc/conky/conky.conf
+    owner: root
+    group: root
+
+- name: ensure that autostart directory is created
+  file: path=/opt/autostart state=directory
+
+- name: copy conky desktop autostart
+  copy:
+    src: Conky.desktop
+    dest: /opt/autostart/Conky.desktop
+    owner: root
+    group: root
