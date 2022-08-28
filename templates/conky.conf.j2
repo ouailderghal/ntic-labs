@@ -67,6 +67,7 @@ conky.config = {
 }
 
 conky.text = [[
+${color grey}Username:$color ${exec whoami}
 ${color grey}Hostname:$color $nodename
 ${color grey}IP Address:$color ${addr {{ interface_name }}}
 $hr
