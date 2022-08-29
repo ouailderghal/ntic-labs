@@ -1,0 +1,10 @@
+---
+- hosts: servers
+  user: ouail
+  become: yes
+
+  roles:
+    - { role: upgrade, tags: upgrade }
+    - { role: dns, tags: dns }
+#    - { role: samba, tags: samba }
+
