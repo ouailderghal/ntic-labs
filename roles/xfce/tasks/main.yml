@@ -1,0 +1,25 @@
+---
+- name: remove light-locker
+  apt: name=light-locker state=absent
+
+- name: disable xflock4
+  shell:
+    cmd: "mv /usr/bin/xflock4 /usr/bin/xflock4.bk"
+  ignore_errors: yes
+
+- name: ensure that autostart directory exists
+  file: path=/opt/autostart state=directory
+
+- name: copy configuration files
+  copy:
+    src: xfce4
+    dest: /opt
+    owner: root
+    group: root
+
+- name: copy wallpapers
+  copy:
+    src: wallpapers
+    dest: /opt
+    owner: root
+    group: root
