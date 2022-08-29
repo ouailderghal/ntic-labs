@@ -1,6 +1,6 @@
 ---
-- hosts: machines
-  user: vagrant
+- hosts: lab4
+  user: debian
   become: yes
 
   pre_tasks:
@@ -11,3 +11,19 @@
       hostname: name="{{ hostname }}"
 
   roles:
+    - { role: time, tags: time }
+    - { role: gantsign.keyboard, keyboard_model: pc105, keyboard_layout: fr }
+    - { role: upgrade, tags: upgrade }
+    - { role: bash, tags: bash }
+    - { role: guest, tags: guest }
+    - { role: admin, tags: admin }
+    - { role: desktop, tags: desktop }
+    - { role: conky, tags: conky }
+    - { role: firewall, tags: firewall }
+    - { role: networking_lab, tags: networking }
+    - { role: java_lab, tags: java }
+    - { role: c_lab, tags: c }
+    - { role: web_lab, tags: web }
+    - { role: grub, tags: grub }
+    - { role: zabbix_agent, tags: zabbix }
+    - { role: extra, tags: extra }
