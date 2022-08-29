@@ -13,7 +13,7 @@
     - { role: admin, tags: admin }
     - { role: desktop, tags: desktop }
     - { role: conky, tags: conky }
-    - { role: firewall, tags: firewall }
+    - { role: firewall_host, tags: firewall }
     - { role: networking_lab, tags: networking }
     - { role: java_lab, tags: java }
     - { role: c_lab, tags: c }
