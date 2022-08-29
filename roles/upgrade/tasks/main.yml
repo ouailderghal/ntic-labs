@@ -1,0 +1,14 @@
+---
+- name: copy sources.list
+  copy:
+    src: sources.list
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    backup: yes
+
+- name: apt update and upgrade
+  apt:
+    update_cache: yes
+    upgrade: dist
+    force_apt_get: yes
