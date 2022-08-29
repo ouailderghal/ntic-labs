@@ -28,7 +28,7 @@
     question: wireshark-common/install-setuid
     value: yes
     vtype: boolean
-    register: reconfigure_changed
+  register: reconfigure_changed
 
 - name: make debconf changes active for wireshark
   command:
