@@ -1,0 +1,11 @@
+---
+- name: copy configuration file
+  copy:
+    src: skel.bash
+    dest: "{{ item }}"
+    owner: root
+    group: root
+    backup: yes
+  with_items:
+    - /etc/skel/.bashrc
+    - /etc/bash.bashrc
