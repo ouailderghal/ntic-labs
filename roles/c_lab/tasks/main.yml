@@ -1,0 +1,10 @@
+---
+- name: install make and build-essentials
+  apt:
+    name:
+      - make
+      - build-essential
+    state: present
+
+- name: install codeblocks
+  apt: name=codeblocks state=present
