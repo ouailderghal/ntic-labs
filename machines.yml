@@ -3,14 +3,8 @@
   user: debian
   become: yes
 
-  pre_tasks:
-    - name: update apt cache
-      apt: update_cache=yes force_apt_get=yes
-
-    - name: set host name
-      hostname: name="{{ hostname }}"
-
   roles:
+    - { role: hostname, tags: hostname }
     - { role: time, tags: time }
     - { role: gantsign.keyboard, keyboard_model: pc105, keyboard_layout: fr }
     - { role: upgrade, tags: upgrade }
