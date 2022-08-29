@@ -1,0 +1,98 @@
+---
+- name: install samba server
+  apt: name=samba state=present
+
+- name: enable and run samba service
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - smbd
+    - nmbd
+
+- name: create `teachers` group
+  group: name=teachers state=present
+
+- name: create `teacher` samba user
+  user:
+    name: teacher
+    comment: teacher
+    shell: /sbin/nologin
+    create_home: no
+    groups: teachers
+    append: yes
+    state: present
+
+- name: ensure that root samba shares directory exists
+  file:
+    path: /home/samba/
+    state: directory
+    owner: root
+    group: root
+
+- name: create SHARED directory
+  file:
+    path: /home/samba/Shared
+    state: directory
+    owner: root
+    group: root
+
+- name: create SHARED directories for ENGINEERING and LMD classes
+  file:
+    path: /home/samba/Shared/{{ item }}
+    state: directory
+    owner: root
+    group: teachers
+    mode: 0755
+  with_items:
+    - ENG
+    - LMD
+
+- name: create semesters directories for LMD class
+  file:
+    path: /home/samba/Shared/LMD/{{ item }}
+    state: directory
+    owner: root
+    group: teachers
+    mode: 0755
+  with_items:
+    - S1
+    - S2
+    - S3
+    - S4
+
+- name: create modules directories for each semester
+  file:
+    path: /home/samba/Shared/LMD/{{ item.semester }}/{{ item.subject }}
+    state: directory
+    owner: root
+    group: teachers
+    mode: 0775
+  with_items:
+    - { semester: S1, subject: ALGO1 }
+    - { semester: S2, subject: IPO }
+    - { semester: S2, subject: PSD }
+    - { semester: S3, subject: POO }
+    - { semester: S3, subject: ASD }
+    - { semester: S3, subject: AO }
+    - { semester: S4, subject: SE1 }
+    - { semester: S4, subject: BD }
+    - { semester: S4, subject: RES }
+    - { semester: S4, subject: DAO }
+
+- name: copy samba server configuration file
+  template:
+    src: smb.conf.j2
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: restart samba service
+  service:
+    name: "{{ item }}"
+    state: restarted
+  with_items:
+    - smbd
+    - nmbd
