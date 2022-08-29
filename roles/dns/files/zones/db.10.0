@@ -11,6 +11,7 @@ $TTL	604800
 
 ; servers
 1.0 IN	PTR	s1.servers.
+3.0 IN	PTR	vm.servers.
 
 ; lab4
 1.4	    IN  PTR pc1.lab4.	

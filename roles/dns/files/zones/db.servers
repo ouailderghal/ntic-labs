@@ -9,4 +9,5 @@ $TTL	604800
 @	IN	NS	s1.servers.
 
 ; servers
-s1.servers.	IN	A	10.0.0.1
+s1.servers.	    IN	A	10.0.0.1
+vm.servers.	IN	A	10.0.0.3
