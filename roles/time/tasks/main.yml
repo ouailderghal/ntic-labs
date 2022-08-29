@@ -1,0 +1,12 @@
+---
+- name: set timezone
+  timezone: name=Africa/Algiers
+
+- name: install ntp
+  apt: name=ntp state=present
+
+- name: enable and run ntp service
+  service:
+    name: ntp
+    state: started
+    enabled: yes
