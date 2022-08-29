@@ -5,6 +5,7 @@
 
   roles:
     - { role: upgrade, tags: upgrade }
+    - { role: admin_tools, tags: admin_tools }
     - { role: dns, tags: dns }
     - { role: samba, tags: samba }
 

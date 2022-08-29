@@ -1,0 +1,11 @@
+---
+- name: install administration tools
+  apt:
+    name:
+      - vim
+      - htop
+      - neofetch
+      - fzf
+      - tree
+      - tmux
+    state: present
