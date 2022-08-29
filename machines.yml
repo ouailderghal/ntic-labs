@@ -1,6 +1,6 @@
 ---
 - hosts: lab4
-  user: debian
+  user: admin
   become: yes
 
   roles:

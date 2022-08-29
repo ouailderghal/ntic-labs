@@ -3,29 +3,29 @@
   user: debian
   become: yes
 
-  roles:
-    - role: gantsign.keyboard
-      keyboard_model: pc105
-      keyboard_layout: fr
+#  roles:
+#    - role: gantsign.keyboard
+#      keyboard_model: pc105
+#      keyboard_layout: fr
 
   pre_tasks:
-    - name: abc
-      tags: abcxyz
-      copy:
-        src: /home/ouail/sudoers
-        dest: /etc/sudoers
-        owner: root
-        group: root
-        backup: yes
+#    - name: abc
+#      tags: abcxyz
+#      copy:
+#        src: /home/ouail/sudoers
+#        dest: /etc/sudoers
+#        owner: root
+#        group: root
+#        backup: yes
 
-    - name: x
-      tags: x
-      debug:
-        var: " {{ ansible_facts['default_ipv4']['interface'] }} "
+#    - name: x
+#      tags: x
+#      debug:
+#        var: " {{ ansible_facts['default_ipv4']['interface'] }} "
 
-    - name: Set hostname
-      tags: hostname
-      hostname: name="{{ hostname }}"
+#    - name: Set hostname
+#      tags: hostname
+#      hostname: name="{{ hostname }}"
 
     - name: SYSTEM UPDATE AND UPGRADE
       tags: update,upgrade
@@ -62,21 +62,21 @@
 #          tags: ntp
 #          service: name=ntp state=started enabled=yes
 
-    - name: Copy bash configuration
-      tags: bash,bashrc
-      copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dest }}"
-        owner: root
-        group: root
-        backup: yes
-      with_items:
-        - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
-        - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
+#    - name: Copy bash configuration
+#      tags: bash,bashrc
+#      copy:
+#        src: "{{ item.src }}"
+#        dest: "{{ item.dest }}"
+#        owner: root
+#        group: root
+#        backup: yes
+#      with_items:
+#        - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
+#        - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
 
-    - name: XFCE CONFIGURATION
-      tags: xfce
-      block:
+#    - name: XFCE CONFIGURATION
+#      tags: xfce
+#      block:
 #        - name: Remove light-locker
 #          apt: name=light-locker state=absent
 #
@@ -85,13 +85,13 @@
 #            cmd: "mv /usr/bin/xflock4 /usr/bin/xflock4.bk"
 #          ignore_errors: yes
 
-        - name: Remove old XFCE configuration files
-          file:
-            path: "{{ item }}"
-            state: absent
-          with_items:
-            - /opt/xfce4
-            - /opt/xfce4.zip
+#        - name: Remove old XFCE configuration files
+#          file:
+#            path: "{{ item }}"
+#            state: absent
+#          with_items:
+#            - /opt/xfce4
+#            - /opt/xfce4.zip
 
 #        - name: Copy xfce4 and autostart configuration files
 #          copy:
@@ -164,20 +164,20 @@
 #            port: 10050
 #            proto: tcp
 
-    - name: USER CREATION (ADMINISTRATOR, GUEST)
-      tags: users
-      block:
-        - name: Copy BASH configuration file
-          tags: bash,bashrc
-          copy:
-            src: "{{ item.src }}"
-            dest: "{{ item.dest }}"
-            owner: root
-            group: root
-            backup: yes
-          with_items:
-            - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
-            - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
+#    - name: USER CREATION (ADMINISTRATOR, GUEST)
+#      tags: users
+#      block:
+#        - name: Copy BASH configuration file
+#          tags: bash,bashrc
+#          copy:
+#            src: "{{ item.src }}"
+#            dest: "{{ item.dest }}"
+#            owner: root
+#            group: root
+#            backup: yes
+#          with_items:
+#            - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
+#            - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
 
 #        - name: Create guest user
 #          tags: guest_user
@@ -212,26 +212,26 @@
 #            group: root
 #            backup: yes
 
-        - name: Enable passwordless login for sudo group
-          tags: sudo
-          lineinfile:
-            path: /etc/sudoers
-            state: present
-            regexp: '^%sudo'
-            line: '%sudo ALL=(ALL) NOPASSWD: ALL'
-            validate: 'visudo -cf %s'
+#        - name: Enable passwordless login for sudo group
+#          tags: sudo
+#          lineinfile:
+#            path: /etc/sudoers
+#            state: present
+#            regexp: '^%sudo'
+#            line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+#            validate: 'visudo -cf %s'
 
-    - name: SSH CONFIGURATION
-      tags: ssh
-      block:
-        - name: Copy SSH authorized keys for administrator user
-          tags: authorized_keys
-          copy:
-            src: ./config/ssh/authorized_keys
-            dest: /home/admin/.ssh/
-            owner: admin
-            group: admin
-            mode: 0644
+#    - name: SSH CONFIGURATION
+#      tags: ssh
+#      block:
+#        - name: Copy SSH authorized keys for administrator user
+#          tags: authorized_keys
+#          copy:
+#            src: ./config/ssh/authorized_keys
+#            dest: /home/admin/.ssh/
+#            owner: admin
+#            group: admin
+#            mode: 0644
 
 #    - name: FIREWALL CONFIGURATION
 #      tags: firewall,ufw
@@ -260,144 +260,144 @@
 #            port: 8000:8005
 #            proto: udp
 
-    - name: NETWORKING TOOLS INSTALLATION
-      tags: networking
-      block:
-        - name: Copy packettracer.deb file
-          tags: packettracer
-          copy:
-            src: ./packages/packettracer.deb
-            dest: /home/admin/
-            owner: admin
-            group: admin
-            mode: 0664
+#    - name: NETWORKING TOOLS INSTALLATION
+#      tags: networking
+#      block:
+#        - name: Copy packettracer.deb file
+#          tags: packettracer
+#          copy:
+#            src: ./packages/packettracer.deb
+#            dest: /home/admin/
+#            owner: admin
+#            group: admin
+#            mode: 0664
+#
+#        - name: Install packettracer.deb
+#          tags: packettracer
+#          apt: deb=/home/admin/packettracer.deb
+#          ignore_errors: yes
+#
+#        - name: Install WireShark
+#          tags: wireshark
+#          apt: name=wireshark state=present
+#
+#        - name: Add wireshark group
+#          tags: wireshark
+#          group: name=wireshark state=present
+#
+#        - name: Add guest user to wireshark group
+#          tags: wireshark
+#          user:
+#            name: guest
+#            groups: wireshark
+#            append: yes
+#
+#        - name: Wireshark setuid
+#          ansible.builtin.debconf:
+#            name: wireshark-common
+#            question: wireshark-common/install-setuid
+#            value: yes
+#            vtype: boolean
+#          register: reconfigure_changed
+#
+#        - name: Make debconf changes active for Wireshark
+#          ansible.builtin.command:
+#            cmd: "dpkg-reconfigure wireshark-common"
+#          environment:
+#            DEBIAN_FRONTEND: noninteractive
+#          when: reconfigure_changed.changed
 
-        - name: Install packettracer.deb
-          tags: packettracer
-          apt: deb=/home/admin/packettracer.deb
-          ignore_errors: yes
+#    - name: JAVA DEVELOPEMENT TOOLS INSTALLATION
+#      tags: java
+#      block:
+#        - name: Install OpenJDK 17
+#          apt:
+#            name:
+#              - openjdk-17-jdk
+#              - openjdk-17-jre
+#              - openjdk-17-doc
+#              - openjdk-17-demo
+#              - openjdk-17-dbg
+#            state: present
+#
+#        - name: Copy eclipse.tar.gz file
+#          tags: eclipse
+#          copy:
+#            src: ./packages/eclipse.tar.gz
+#            dest: /home/admin/
+#            owner: admin
+#            group: admin
+#            mode: 0664
+#
+#        - name: Unarchive eclipse.tar.gz file into /opt
+#          tags: eclipse
+#          unarchive:
+#            src: /home/admin/eclipse.tar.gz
+#            dest: /opt
+#            remote_src: yes
+#
+#        - name: Copy eclipse.desktop application launcher
+#          tags: eclipse
+#          copy:
+#            src: ./config/eclipse/eclipse.desktop
+#            dest: /usr/share/applications
+#            owner: root
+#            group: root
+#            mode: 0776
 
-        - name: Install WireShark
-          tags: wireshark
-          apt: name=wireshark state=present
+#    - name: Install C developement tools
+#      tags: c
+#      apt:
+#        name:
+#          - make
+#          - build-essential
+#          - codeblocks
+#        state: present
 
-        - name: Add wireshark group
-          tags: wireshark
-          group: name=wireshark state=present
+#    - name: PHP & APAHCE WEB SERVER
+#      tags: php
+#      block:
+#        - name: Install PHP and required modules
+#          apt:
+#            name:
+#              - php
+#              - php-zip
+#              - php-yaml
+#              - php-mysql
+#              - php-ldap
+#              - php-bcmath
+#              - php-mbstring
+#              - php-gd
+#              - php-pdo
+#              - php-xml
+#              - php-sqlite3
+#              - libapache2-mod-php
+#            state: present
+#
+#        - name: Install Apache2 server
+#          apt: name=apache2 state=present
+#
+#        - name: Enable and run Apache2 service
+#          service: name=apache2 state=started enabled=yes
+#
+#    - name: Install Microsoft Visual Studio Code
+#      tags: vscode
+#      block:
+#        - name: Copy vscode.deb file
+#          copy:
+#            src: ./packages/vscode.deb
+#            dest: /home/admin/
+#            owner: admin
+#            group: admin
+#            mode: 0664
+#
+#        - name: Install vscode.deb
+#          apt: deb=/home/admin/vscode.deb
+#          ignore_errors: yes
 
-        - name: Add guest user to wireshark group
-          tags: wireshark
-          user:
-            name: guest
-            groups: wireshark
-            append: yes
-
-        - name: Wireshark setuid
-          ansible.builtin.debconf:
-            name: wireshark-common
-            question: wireshark-common/install-setuid
-            value: yes
-            vtype: boolean
-          register: reconfigure_changed
-
-        - name: Make debconf changes active for Wireshark
-          ansible.builtin.command:
-            cmd: "dpkg-reconfigure wireshark-common"
-          environment:
-            DEBIAN_FRONTEND: noninteractive
-          when: reconfigure_changed.changed
-
-    - name: JAVA DEVELOPEMENT TOOLS INSTALLATION
-      tags: java
-      block:
-        - name: Install OpenJDK 17
-          apt:
-            name:
-              - openjdk-17-jdk
-              - openjdk-17-jre
-              - openjdk-17-doc
-              - openjdk-17-demo
-              - openjdk-17-dbg
-            state: present
-
-        - name: Copy eclipse.tar.gz file
-          tags: eclipse
-          copy:
-            src: ./packages/eclipse.tar.gz
-            dest: /home/admin/
-            owner: admin
-            group: admin
-            mode: 0664
-
-        - name: Unarchive eclipse.tar.gz file into /opt
-          tags: eclipse
-          unarchive:
-            src: /home/admin/eclipse.tar.gz
-            dest: /opt
-            remote_src: yes
-
-        - name: Copy eclipse.desktop application launcher
-          tags: eclipse
-          copy:
-            src: ./config/eclipse/eclipse.desktop
-            dest: /usr/share/applications
-            owner: root
-            group: root
-            mode: 0776
-
-    - name: Install C developement tools
-      tags: c
-      apt:
-        name:
-          - make
-          - build-essential
-          - codeblocks
-        state: present
-
-    - name: PHP & APAHCE WEB SERVER
-      tags: php
-      block:
-        - name: Install PHP and required modules
-          apt:
-            name:
-              - php
-              - php-zip
-              - php-yaml
-              - php-mysql
-              - php-ldap
-              - php-bcmath
-              - php-mbstring
-              - php-gd
-              - php-pdo
-              - php-xml
-              - php-sqlite3
-              - libapache2-mod-php
-            state: present
-
-        - name: Install Apache2 server
-          apt: name=apache2 state=present
-
-        - name: Enable and run Apache2 service
-          service: name=apache2 state=started enabled=yes
-
-    - name: Install Microsoft Visual Studio Code
-      tags: vscode
-      block:
-        - name: Copy vscode.deb file
-          copy:
-            src: ./packages/vscode.deb
-            dest: /home/admin/
-            owner: admin
-            group: admin
-            mode: 0664
-
-        - name: Install vscode.deb
-          apt: deb=/home/admin/vscode.deb
-          ignore_errors: yes
-
-    - name: PURGE GUEST DATA
-      tags: purge
-      block:
+#    - name: PURGE GUEST DATA
+#      tags: purge
+#      block:
 #        - name: Copy purge home script and service file
 #          copy:
 #            src: "{{ item.src }}"
@@ -416,12 +416,12 @@
 #            daemon_reload: yes
 #            name: purge-guest-home.service
 
-        - name: disable cron job for purging guest home directory
-          cron:
-            name: "a job for purging guest home folder on reboot"
-            special_time: reboot
-            job: "/scripts/purge_home.sh"
-            state: absent
+#        - name: disable cron job for purging guest home directory
+#          cron:
+#            name: "a job for purging guest home folder on reboot"
+#            special_time: reboot
+#            job: "/scripts/purge_home.sh"
+#            state: absent
 
 #        - name: Remove old purge script
 #          file:

@@ -6,5 +6,5 @@
   roles:
     - { role: upgrade, tags: upgrade }
     - { role: dns, tags: dns }
-#    - { role: samba, tags: samba }
+    - { role: samba, tags: samba }
 
