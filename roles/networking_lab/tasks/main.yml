@@ -1,0 +1,38 @@
+---
+- name: copy packet tracer deb file
+  copy:
+    src: packettracer.deb
+    dest: /opt
+    owner: root
+    group: root
+
+- name: install packet tracer
+  apt: deb=/opt/packettracer.deb
+  ignore_errors: yes
+
+- name: install wireshark
+  apt: name=wireshark state=present
+
+- name: add wireshark group
+  group: name=wireshark state=present
+
+- name: add guest user to wireshark group
+  user:
+    name: guest
+    groups: wireshark
+    append: yes
+
+- name: wireshark set uid
+  debconf:
+    name: wireshark-common
+    question: wireshark-common/install-setuid
+    value: yes
+    vtype: boolean
+    register: reconfigure_changed
+
+- name: make debconf changes active for wireshark
+  command:
+    cmd: "dpkg-reconfigure wireshark-common"
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+  when: reconfigure_changed.changed
