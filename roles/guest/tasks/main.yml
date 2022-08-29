@@ -18,6 +18,13 @@
     group: root
     mode: 0744
 
+- name: ensure that purge cron job is disabled
+  cron:
+    name: "a job for purging guest home folder on reboot"
+    special_time: reboot
+    job: "/scripts/purge_home.sh"
+    state: absent
+
 - name: copy purge home script
   copy:
     src: purge_guest_home.sh
