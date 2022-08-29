@@ -1,0 +1,97 @@
+$TTL	604800
+@	IN	SOA	s1.servers. root.s1.servers. (
+			      3		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+
+; name server
+@   IN	NS	s1.servers.
+
+; servers
+1.0 IN	PTR	s1.servers.
+
+; lab4
+1.4	    IN  PTR pc1.lab4.	
+2.4	    IN	PTR	pc2.lab4.	
+3.4	    IN	PTR	pc3.lab4.	
+4.4	    IN	PTR	pc4.lab4.	
+5.4	    IN	PTR	pc5.lab4.	
+6.4	    IN	PTR	pc6.lab4.	
+7.4	    IN	PTR	pc7.lab4.	
+8.4	    IN	PTR	pc8.lab4.	
+9.4	    IN	PTR	pc9.lab4.	
+10.4	IN	PTR	pc10.lab4.	
+11.4	IN	PTR	pc11.lab4.	
+12.4	IN	PTR	pc12.lab4.	
+13.4	IN	PTR	pc13.lab4.	
+14.4	IN	PTR	pc14.lab4.	
+15.4	IN	PTR	pc15.lab4.	
+16.4	IN	PTR	pc16.lab4.	
+17.4	IN	PTR	pc17.lab4.	
+18.4	IN	PTR	pc18.lab4.	
+19.4	IN	PTR	pc19.lab4.	
+20.4	IN	PTR	pc20.lab4.	
+21.4	IN	PTR	pc21.lab4.	
+22.4	IN	PTR	pc22.lab4.	
+23.4	IN	PTR	pc23.lab4.	
+24.4	IN	PTR	pc24.lab4.	
+25.4	IN	PTR	pc25.lab4.
+100.4   IN  PTR teacher.lab4.
+
+; lab5
+1.5	    IN  PTR pc1.lab5.	
+2.5	    IN	PTR	pc2.lab5.	
+3.5	    IN	PTR	pc3.lab5.	
+4.5	    IN	PTR	pc4.lab5.	
+5.5	    IN	PTR	pc5.lab5.	
+6.5	    IN	PTR	pc6.lab5.	
+7.5	    IN	PTR	pc7.lab5.	
+8.5	    IN	PTR	pc8.lab5.	
+9.5	    IN	PTR	pc9.lab5.	
+10.5	IN	PTR	pc10.lab5.	
+11.5	IN	PTR	pc11.lab5.	
+12.5	IN	PTR	pc12.lab5.	
+13.5	IN	PTR	pc13.lab5.	
+14.5	IN	PTR	pc14.lab5.	
+15.5	IN	PTR	pc15.lab5.	
+16.5	IN	PTR	pc16.lab5.	
+17.5	IN	PTR	pc17.lab5.	
+18.5	IN	PTR	pc18.lab5.	
+19.5	IN	PTR	pc19.lab5.	
+20.5	IN	PTR	pc20.lab5.	
+21.5	IN	PTR	pc21.lab5.	
+22.5	IN	PTR	pc22.lab5.	
+23.5	IN	PTR	pc23.lab5.	
+24.5	IN	PTR	pc24.lab5.	
+25.5	IN	PTR	pc25.lab5.
+100.5   IN  PTR teacher.lab5.
+
+; lab6
+1.6	    IN  PTR pc1.lab6.	
+2.6	    IN	PTR	pc2.lab6.	
+3.6	    IN	PTR	pc3.lab6.	
+4.6	    IN	PTR	pc4.lab6.	
+5.6	    IN	PTR	pc5.lab6.	
+6.6	    IN	PTR	pc6.lab6.	
+7.6	    IN	PTR	pc7.lab6.	
+8.6	    IN	PTR	pc8.lab6.	
+9.6	    IN	PTR	pc9.lab6.	
+10.6	IN	PTR	pc10.lab6.	
+11.6	IN	PTR	pc11.lab6.	
+12.6	IN	PTR	pc12.lab6.	
+13.6	IN	PTR	pc13.lab6.	
+14.6	IN	PTR	pc14.lab6.	
+15.6	IN	PTR	pc15.lab6.	
+16.6	IN	PTR	pc16.lab6.	
+17.6	IN	PTR	pc17.lab6.	
+18.6	IN	PTR	pc18.lab6.	
+19.6	IN	PTR	pc19.lab6.	
+20.6	IN	PTR	pc20.lab6.	
+21.6	IN	PTR	pc21.lab6.	
+22.6	IN	PTR	pc22.lab6.	
+23.6	IN	PTR	pc23.lab6.	
+24.6	IN	PTR	pc24.lab6.	
+25.6	IN	PTR	pc25.lab6.
+100.6   IN  PTR teacher.lab6.

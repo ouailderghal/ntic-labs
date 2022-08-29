@@ -1,0 +1,47 @@
+---
+- name: install server packages
+  apt:
+    name:
+      - bind9
+      - bind9-doc
+      - bind9-utils
+      - bind9-dnsutils
+    state: present
+
+- name: ensure that bind directory exists
+  file:
+    path: /etc/bind/
+    state: directory
+
+- name: copy named configuration file
+  copy:
+    src: named.conf
+    dest: /etc/bind/named.conf
+    owner: root
+    group: root
+    backup: yes
+
+- name: copy local named configuration file
+  copy:
+    src: named.conf.local
+    dest: /etc/bind/named.conf.local
+    owner: root
+    group: root
+
+- name: ensure that zones directory exists
+  file:
+    path: /etc/bind/zones/
+    state: directory
+
+- name: copy zones database files
+  copy:
+    src: zones/
+    dest: /etc/bind/zones/
+    owner: root
+    group: root
+
+- name: enable and run named service
+  service:
+    name: named
+    state: started
+    enabled: yes
