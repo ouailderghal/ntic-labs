@@ -10,10 +10,15 @@
 - name: ensure that autostart directory exists
   file: path=/opt/autostart state=directory
 
+- name: ensure that xfce4 directory exists in opt
+  file:
+    path: /opt/xfce4
+    state: directory
+
 - name: copy configuration files
   copy:
-    src: xfce4
-    dest: /opt
+    src: xfce4/
+    dest: /opt/xfce4/
     owner: root
     group: root
 
