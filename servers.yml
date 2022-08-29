@@ -9,4 +9,6 @@
     - { role: dns, tags: dns }
     - { role: samba, tags: samba }
     - { role: firewall_server, tags: firewall }
+    - { role: dhcp, tags: dhcp }
+
 

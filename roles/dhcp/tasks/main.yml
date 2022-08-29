@@ -1,0 +1,17 @@
+---
+- name: install server
+  apt: name=isc-dhcp-server state=present
+
+- name: copy dhcpd configuration file
+  template:
+    src: dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    backup: yes
+
+- name: enable and run dhcp service
+  service:
+    name: isc-dhcp-server
+    state: started
+    enabled: yes

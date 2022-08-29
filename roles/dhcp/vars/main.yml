@@ -1,0 +1,8 @@
+---
+name_server: 10.0.0.1
+subnet: 10.0.0.0
+subnet_mask: 255.255.0.0
+gateway: 10.0.0.1
+broadcast: 10.0.255.255
+range_from: 10.0.100.1
+range_to: 10.0.100.254
