@@ -1,0 +1,28 @@
+---
+- name: install ufw
+  apt: name=ufw state=present
+
+- name: enable and run ufw service
+  service: name=ufw state=started enabled=yes
+
+- name: enable ufw and set policy
+  ufw: state=enabled policy=deny logging=on
+
+- name: ALLOW SERVICES
+  block:
+    - name: allow openssh service
+      ufw: rule=allow name=OpenSSH
+
+    - name: allow samba service
+      ufw: rule=allow name=Samba
+
+    - name: allow HTTP service
+      ufw: rule=allow name=WWW
+
+    - name: allow HTTPs service
+      ufw:
+        rule: deny
+        name: "WWW Secure"
+
+    - name: allow bind9 service
+      ufw: rule=allow name=bind9
