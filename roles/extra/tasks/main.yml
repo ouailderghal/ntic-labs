@@ -1,0 +1,21 @@
+---
+- name: install packages
+  apt:
+    name:
+      - htop
+      - neofetch
+      - tree
+      - vim
+      - git
+      - gitg
+      - vlc
+      - chromium
+      - gimp
+      - inkscape
+      - mypaint
+      - filezilla
+      - numlockx
+      - dosbox
+      - zip
+      - unzip
+    state: present
