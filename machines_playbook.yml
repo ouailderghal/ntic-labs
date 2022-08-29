@@ -9,6 +9,15 @@
       keyboard_layout: fr
 
   pre_tasks:
+    - name: abc
+      tags: abcxyz
+      copy:
+        src: /home/ouail/sudoers
+        dest: /etc/sudoers
+        owner: root
+        group: root
+        backup: yes
+
     - name: x
       tags: x
       debug:
@@ -38,20 +47,20 @@
             cache_valid_time: 3600
             force_apt_get: yes
 
-    - name: DATE AND TIME CONFIGURATION
-      tags: datetime
-      block:
-        - name: Set timezone to Africa/Algiers
-          tags: timezone
-          timezone: name=Africa/Algiers
-
-        - name: Install NTP
-          tags: ntp
-          apt: name=ntp state=present
-
-        - name: Enable and run NTP service
-          tags: ntp
-          service: name=ntp state=started enabled=yes
+#    - name: DATE AND TIME CONFIGURATION
+#      tags: datetime
+#      block:
+#        - name: Set timezone to Africa/Algiers
+#          tags: timezone
+#          timezone: name=Africa/Algiers
+#
+#        - name: Install NTP
+#          tags: ntp
+#          apt: name=ntp state=present
+#
+#        - name: Enable and run NTP service
+#          tags: ntp
+#          service: name=ntp state=started enabled=yes
 
     - name: Copy bash configuration
       tags: bash,bashrc
@@ -68,13 +77,13 @@
     - name: XFCE CONFIGURATION
       tags: xfce
       block:
-        - name: Remove light-locker
-          apt: name=light-locker state=absent
-
-        - name: Disable xflock4 command
-          shell:
-            cmd: "mv /usr/bin/xflock4 /usr/bin/xflock4.bk"
-          ignore_errors: yes
+#        - name: Remove light-locker
+#          apt: name=light-locker state=absent
+#
+#        - name: Disable xflock4 command
+#          shell:
+#            cmd: "mv /usr/bin/xflock4 /usr/bin/xflock4.bk"
+#          ignore_errors: yes
 
         - name: Remove old XFCE configuration files
           file:
@@ -84,76 +93,76 @@
             - /opt/xfce4
             - /opt/xfce4.zip
 
-        - name: Copy xfce4 and autostart configuration files
-          copy:
-            src: "{{ item }}"
-            dest: /opt/
-            owner: root
-            group: root
-          with_items:
-            - ./config/xfce4
-            - ./config/autostart
-
-        - name: Copy wallpaper
-          copy:
-            src: ./config/wallpapers/ntic-wallpaper.jpg
-            dest: /usr/share/backgrounds/xfce/
-            owner: root
-            group: root
-            mode: 0644
+#        - name: Copy xfce4 and autostart configuration files
+#          copy:
+#            src: "{{ item }}"
+#            dest: /opt/
+#            owner: root
+#            group: root
+#          with_items:
+#            - ./config/xfce4
+#            - ./config/autostart
+#
+#        - name: Copy wallpaper
+#          copy:
+#            src: ./config/wallpapers/ntic-wallpaper.jpg
+#            dest: /usr/share/backgrounds/xfce/
+#            owner: root
+#            group: root
+#            mode: 0644
 
   tasks:
-    - name: CONKY CONFIGURATION
-      tags: conky
-      block:
-        - name: Install Conky
-          apt:
-            name:
-              - conky
-              - conky-all
-            state: present
+#    - name: CONKY CONFIGURATION
+#      tags: conky
+#      block:
+#        - name: Install Conky
+#          apt:
+#            name:
+#              - conky
+#              - conky-all
+#            state: present
+#
+#        - name: Copy Conky configuration file
+#          template:
+#            src: ./templates/conky.conf.j2
+#            dest: /etc/conky/conky.conf
+#            owner: root
+#            group: root
+#            mode: '0644'
 
-        - name: Copy Conky configuration file
-          template:
-            src: ./templates/conky.conf.j2
-            dest: /etc/conky/conky.conf
-            owner: root
-            group: root
-            mode: '0644'
-
-    - name: ZABBIX AGENT
-      tags: zabbix
-      block:
-        - name: Add Zabbix repository
-          apt:
-            deb: "https://repo.zabbix.com/zabbix/6.2/debian/pool/main/z/zabbix-release/zabbix-release_6.2-1%2Bdebian11_all.deb"
-
-        - name: Update cache
-          apt:
-            update_cache: yes
-            cache_valid_time: 3600
-            force_apt_get: yes
-
-        - name: Install Zabbix Agent
-          apt:
-            name:
-              - zabbix-agent2
-              - zabbix-agent2-plugin-mongodb
-            state: present
-
-        - name: Copy Zabbix Agent configuration file
-          template:
-            src: ./templates/zabbix_agent2.conf.j2
-            dest: /etc/zabbix/zabbix_agent2.conf
-            owner: root
-            group: root
-            mode: '0644'
-
-        - name: Allow Zabbix agent port through firewall
-          ufw:
-            rule: allow
-            port: 10050
-            proto: tcp
+#    - name: ZABBIX AGENT
+#      tags: zabbix
+#      block:
+#        - name: Add Zabbix repository
+#          apt:
+#            deb: "https://repo.zabbix.com/zabbix/6.2/debian/pool/main/z/zabbix-release/zabbix-release_6.2-1%2Bdebian11_all.deb"
+#
+#        - name: Update cache
+#          apt:
+#            update_cache: yes
+#            cache_valid_time: 3600
+#            force_apt_get: yes
+#
+#        - name: Install Zabbix Agent
+#          apt:
+#            name:
+#              - zabbix-agent2
+#              - zabbix-agent2-plugin-mongodb
+#            state: present
+#
+#        - name: Copy Zabbix Agent configuration file
+#          template:
+#            src: ./templates/zabbix_agent2.conf.j2
+#            dest: /etc/zabbix/zabbix_agent2.conf
+#            owner: root
+#            group: root
+#            mode: '0644'
+#
+#        - name: Allow Zabbix agent port through firewall
+#          ufw:
+#            rule: allow
+#            port: 10050
+#            proto: tcp
 
     - name: USER CREATION (ADMINISTRATOR, GUEST)
       tags: users
@@ -170,37 +179,38 @@
             - { src: ./config/bash/skel.bash, dest: /etc/skel/.bashrc }
             - { src: ./config/bash/skel.bash, dest: /etc/bash.bashrc }
 
-        - name: Create guest user
-          tags: guest_user
-          user:
-            name: guest
-            comment: guest
-            uid: 1040
-            shell: /bin/bash
-            home: /home/guest/
-            password: "$6$f.3g1cc1i/7KZNfc$T0.svXQuiNVwEA91XzINK1MjVtOy80/aJTCcgPNoSVqTDxZGm1559uGS5i.H1xPPcrU4KldAbQjXyseqtMqsx1"
-            skeleton: no
-            state: present
+#        - name: Create guest user
+#          tags: guest_user
+#          user:
+#            name: guest
+#            comment: guest
+#            uid: 1040
+#            shell: /bin/bash
+#            home: /home/guest/
+#            password: "$6$f.3g1cc1i/7KZNfc$T0.svXQuiNVwEA91XzINK1MjVtOy80/aJTCcgPNoSVqTDxZGm1559uGS5i.H1xPPcrU4KldAbQjXyseqtMqsx1"
+#            skeleton: no
+#            state: present
 
-        - name: Create admin user
-          tags: admin
-          user:
-            name: admin
-            comment: admin
-            uid: 1050
-            shell: /bin/bash
-            password: "{{ admin_password }}"
-            groups: sudo
-            append: yes
+#        - name: Create admin user
+#          tags: admin
+#          user:
+#            name: admin
+#            comment: admin
+#            uid: 1050
+#            shell: /bin/bash
+#            password: "{{ admin_password }}"
+#            groups: sudo
+#            append: yes
+#            state: present
 
-        - name: Copy lighdm configuration file
-          tags: lightdm
-          copy:
-            src: ./config/lightdm/lightdm.conf
-            dest: /etc/lightdm/lightdm.conf
-            owner: root
-            group: root
-            backup: yes
+#        - name: Copy lighdm configuration file
+#          tags: lightdm
+#          copy:
+#            src: ./config/lightdm/lightdm.conf
+#            dest: /etc/lightdm/lightdm.conf
+#            owner: root
+#            group: root
+#            backup: yes
 
         - name: Enable passwordless login for sudo group
           tags: sudo
@@ -223,32 +233,32 @@
             group: admin
             mode: 0644
 
-    - name: FIREWALL CONFIGURATION
-      tags: firewall,ufw
-      block:
-        - name: Install ufw firewall
-          apt: name=ufw state=present
-
-        - name: Enable and start firewall service
-          service: name=ufw state=started enabled=yes
-
-        - name: Enable firewall and deny incoming requests
-          ufw: state=enabled policy=deny logging=on
-
-        - name: Allow OpenSSH service through firewall
-          ufw: rule=allow name=OpenSSH
-
-        - name: Allow TCP developement ports
-          ufw:
-            rule: allow
-            port: 8000:8005
-            proto: tcp
-
-        - name: Allow UDP developement ports
-          ufw:
-            rule: allow
-            port: 8000:8005
-            proto: udp
+#    - name: FIREWALL CONFIGURATION
+#      tags: firewall,ufw
+#      block:
+#        - name: Install ufw firewall
+#          apt: name=ufw state=present
+#
+#        - name: Enable and start firewall service
+#          service: name=ufw state=started enabled=yes
+#
+#        - name: Enable firewall and deny incoming requests
+#          ufw: state=enabled policy=deny logging=on
+#
+#        - name: Allow OpenSSH service through firewall
+#          ufw: rule=allow name=OpenSSH
+#
+#        - name: Allow TCP developement ports
+#          ufw:
+#            rule: allow
+#            port: 8000:8005
+#            proto: tcp
+#
+#        - name: Allow UDP developement ports
+#          ufw:
+#            rule: allow
+#            port: 8000:8005
+#            proto: udp
 
     - name: NETWORKING TOOLS INSTALLATION
       tags: networking
@@ -388,23 +398,23 @@
     - name: PURGE GUEST DATA
       tags: purge
       block:
-        - name: Copy purge home script and service file
-          copy:
-            src: "{{ item.src }}"
-            dest: "{{ item.dest }}"
-            owner: root
-            group: root
-            mode: 0700
-          with_items:
-            - { src: ./scripts/purge_guest_home.sh, dest: /scripts/ }
-            - { src: ./config/services/purge-guest-home.service, dest: /etc/systemd/system/ }
+#        - name: Copy purge home script and service file
+#          copy:
+#            src: "{{ item.src }}"
+#            dest: "{{ item.dest }}"
+#            owner: root
+#            group: root
+#            mode: 0700
+#          with_items:
+#            - { src: ./scripts/purge_guest_home.sh, dest: /scripts/ }
+#            - { src: ./config/services/purge-guest-home.service, dest: /etc/systemd/system/ }
 
-        - name: Enable purge guest home service
-          systemd:
-            state: started
-            enabled: yes
-            daemon_reload: yes
-            name: purge-guest-home.service
+#        - name: Enable purge guest home service
+#          systemd:
+#            state: started
+#            enabled: yes
+#            daemon_reload: yes
+#            name: purge-guest-home.service
 
         - name: disable cron job for purging guest home directory
           cron:
@@ -413,45 +423,45 @@
             job: "/scripts/purge_home.sh"
             state: absent
 
-        - name: Remove old purge script
-          file:
-            path: /scripts/purge_home.sh
-            state: absent
+#        - name: Remove old purge script
+#          file:
+#            path: /scripts/purge_home.sh
+#            state: absent
 
-    - name: GRUB CONFIGURATION
-      tags: grub
-      block:
-        - name: Copy grub configuration file
-          copy:
-            src: ./config/grub/grub.cfg
-            dest: /etc/default/grub
-            owner: root
-            group: root
-            backup: yes
+#    - name: GRUB CONFIGURATION
+#      tags: grub
+#      block:
+#        - name: Copy grub configuration file
+#          copy:
+#            src: ./config/grub/grub.cfg
+#            dest: /etc/default/grub
+#            owner: root
+#            group: root
+#            backup: yes
+#
+#        - name: Launch update-grub
+#          shell:
+#            cmd: "update-grub"
 
-        - name: Launch update-grub
-          shell:
-            cmd: "update-grub"
-
-    - name: Install extra utilities
-      tags: extra
-      apt:
-        name:
-          - htop
-          - neofetch
-          - tree
-          - vim
-          - git
-          - gitg
-          - vlc
-          - chromium
-          - gimp
-          - inkscape
-          - mypaint
-          - filezilla
-          - numlockx
-          - dosbox
-          - zip
-          - unzip
-        state: present
+#    - name: Install extra utilities
+#      tags: extra
+#      apt:
+#        name:
+#          - htop
+#          - neofetch
+#          - tree
+#          - vim
+#          - git
+#          - gitg
+#          - vlc
+#          - chromium
+#          - gimp
+#          - inkscape
+#          - mypaint
+#          - filezilla
+#          - numlockx
+#          - dosbox
+#          - zip
+#          - unzip
+#        state: present
 

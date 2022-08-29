@@ -4,9 +4,10 @@
   become: yes
 
   pre_tasks:
-    - name: Update apt cache
-      tags: update
+    - name: update apt cache
       apt: update_cache=yes force_apt_get=yes
 
+    - name: set host name
+      hostname: name="{{ hostname }}"
+
   roles:
-    - conky
