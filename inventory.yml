@@ -113,6 +113,7 @@ all:
             10.0.5.1:
               admin_password: $6$khmEl1Y0pfWSxMSx$VsCP8E7yRqIN0SMe9GFQffx8tUuPSFuCH9ss976VL5B0dW7EGPV3guLAF/LiTwM5dgmu9807eyhuvGv9JLIbL1
               hostname: pc1.lab5
+              interface_name: enp2s0
             10.0.5.10:
               admin_password: $6$oei6wPsKfpqtjw7p$Z62lyiSra/GUwxhMT.Dp8gTV/rRavlgk/8RdDUl1sS2RWwj57ZF/.fg3WeeKPQQWYkU0K5bwb3B1kMyjDYzSP/
               hostname: pc10.lab5
@@ -153,6 +154,7 @@ all:
             10.0.5.20:
               admin_password: $6$S.xRzqUXxvbMfGf6$FpBpSCRADAOPi4kkWoFHthvAu1S4xsrrRM6.Fqu7uunhcFgj15Zw.xoOFfawk5GKzBNDSOUZUZhMyRO2a2Qwa/
               hostname: pc20.lab5
+              interface_name: enp2s0
             10.0.5.21:
               admin_password: $6$pf8cktiNI4SLpQJn$kWqerKJC7Xs.sq97JXYmeW3L6YMvGAXaqA/LanTUW1XE9rdmdPGMvoPgG4VGrko64WYRRTqMZaRMnt4P1lGrr/
               hostname: pc21.lab5
@@ -186,6 +188,7 @@ all:
             10.0.5.8:
               admin_password: $6$VA3bdOtj1jtk2sCj$9D/04KO2MDSJLqpDLr6k2FW9GBfcpYNEVHN5yB42oAObHSN4DwSheHti0vOZt6UoRwwoDJZ/0WJScikv0UtfN1
               hostname: pc8.lab5
+              interface_name: enp2s8
             10.0.5.9:
               admin_password: $6$PvmYGJUgLuixUB3Y$3wS.UoVTIYMIJfUzH0sQDcVvXloMwEdZfz38eplsxtmKDUKGM9jcAqim3mHT7XP7NUuumeik/wUjDS9Mk0rK2/
               hostname: pc9.lab5

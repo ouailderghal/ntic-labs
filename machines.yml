@@ -1,13 +1,13 @@
 ---
-- hosts: lab4
-  user: admin
+- hosts: lab5
+  user: debian
   become: yes
 
   roles:
     - { role: hostname, tags: hostname }
     - { role: time, tags: time }
     - { role: gantsign.keyboard, keyboard_model: pc105, keyboard_layout: fr }
-    - { role: upgrade, tags: upgrade }
+#    - { role: upgrade, tags: upgrade }
     - { role: bash, tags: bash }
     - { role: guest, tags: guest }
     - { role: admin, tags: admin }
