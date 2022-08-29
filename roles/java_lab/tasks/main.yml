@@ -1,0 +1,30 @@
+---
+- name: install openjdk 17
+  apt:
+    name:
+      - openjdk-17-jdk
+      - openjdk-17-jre
+      - openjdk-17-doc
+      - openjdk-17-demo
+      - openjdk-17-dbg
+    state: present
+
+- name: copy eclipse package
+  copy:
+    src: eclipse.tar.gz
+    dest: /opt
+    owner: root
+    group: root
+
+- name: unarchive eclipse package
+  unarchive:
+    src: /opt/eclipse.tar.gz
+    dest: /opt
+    remote_src: yes
+
+- name: Copy eclipse desktop entry
+  copy:
+    src: eclipse.desktop
+    dest: /usr/share/applications
+    owner: root
+    group: root
