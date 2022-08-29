@@ -1,0 +1,14 @@
+---
+- name: create user
+  user:
+    name: admin
+    comment: admin
+    uid: 1050
+    shell: /bin/bash
+    home: /home/admin/
+    password: "{{ admin_password }}"
+    groups: sudo
+    append: yes
+    state: present
+
+# TODO: copy SSH keys to admin home
