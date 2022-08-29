@@ -11,4 +11,11 @@
     append: yes
     state: present
 
-# TODO: copy SSH keys to admin home
+- name: set authorized keys
+  authorized_key:
+    user: admin
+    key: " {{ item }} "
+    state: present
+    exclusive: true
+  with_items:
+    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2MtpCKuFZeSZCNZay4zYIL01+e6HX72FCpQCQMHxYk ouailderghal1@gmail.com"
