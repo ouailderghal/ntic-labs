@@ -1,0 +1,13 @@
+---
+- name: copy configuration file
+  copy:
+    src: grub.cfg
+    dest: /etc/default/grub
+    owner: root
+    group: root
+    mode: 0744
+    backup: yes
+
+- name: update
+  shell:
+    cmd: "update-grub"
