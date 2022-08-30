@@ -1,17 +1,17 @@
 ---
-- hosts: lab5
+- hosts: machines
   user: debian
   become: yes
 
   roles:
     - { role: hostname, tags: hostname }
+    - { role: upgrade, tags: upgrade }
     - { role: time, tags: time }
     - { role: gantsign.keyboard, keyboard_model: pc105, keyboard_layout: fr }
-#    - { role: upgrade, tags: upgrade }
     - { role: bash, tags: bash }
     - { role: guest, tags: guest }
     - { role: admin, tags: admin }
-    - { role: desktop, tags: desktop }
+    - { role: desktop, tags: desktop,xfce }
     - { role: conky, tags: conky }
     - { role: firewall_host, tags: firewall }
     - { role: networking_lab, tags: networking }
