@@ -35,3 +35,15 @@
 - name: install vscode
   apt: deb=/opt/vscode.deb
   ignore_errors: yes
+
+- name: disable mpm_event, mpm_prefork and enable php apache modules
+  shell:
+    command: "a2dismod mpm_event"
+  with_items:
+    - "a2dismod mpm_event"
+    - "a2dismod prefork"
+    - "a2enmod php7.4"
+  ignore_errors: yes
+
+- name: restart apache service
+  service: name=apache2 state=restarted
