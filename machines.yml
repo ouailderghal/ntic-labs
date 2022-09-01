@@ -1,6 +1,6 @@
 ---
 - hosts: machines
-  user: debian
+  user: admin
   become: yes
 
   roles:
