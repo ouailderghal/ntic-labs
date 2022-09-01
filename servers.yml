@@ -10,3 +10,4 @@
     - { role: samba, tags: samba }
     - { role: firewall_server, tags: firewall }
     - { role: dhcp, tags: dhcp }
+    - { role: ssh, tags: ssh }
