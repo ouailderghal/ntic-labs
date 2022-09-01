@@ -1,0 +1,11 @@
+---
+- name: copy SSH configuration file
+  copy:
+    src: sshd_config
+    dest: /etc/ssh
+    owner: root
+    group: root
+    backup: yes
+
+- name: restart SSH service
+  service: name=sshd state=restarted

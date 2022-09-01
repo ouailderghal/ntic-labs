@@ -22,3 +22,4 @@
     - { role: grub, tags: grub }
     - { role: zabbix_agent, tags: zabbix }
     - { role: extra, tags: extra }
+    - { role: ssh, tags: ssh }
