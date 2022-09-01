@@ -1,0 +1,33 @@
+---
+- name: install mariadb server and client
+  apt:
+    name:
+      - mariadb-server
+      - mariadb-client
+    state: present
+
+- name: enable and run mariadb service
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: install pymysql
+  apt: name=python3-pymysql state=present
+
+- name: create guest database
+  community.mysql.mysql_db:
+    name: guest_db
+    state: present
+    login_user: root
+    login_password: root
+
+- name:
+  community.mysql.mysql_user:
+    name: guest
+    password: guest
+    state: present
+    priv:
+      'guest_db.*': 'ALL,GRANT'
+    login_user: root
+    login_password: root
