@@ -1,0 +1,13 @@
+[Unit]
+Description=Purge guest database on system startup.
+Wants=mariadb.service
+After=mariadb.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/bin/mysql -e "DROP DATABASE guest_db; CREATE DATABASE guest_db;"
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
