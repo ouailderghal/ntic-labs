@@ -3,9 +3,9 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.define "s1.servers" do |server|
+  config.vm.define "main.servers" do |server|
     server.vm.box = "debian/bullseye64"
-    server.vm.hostname = "s1.servers"
+    server.vm.hostname = "main.servers"
     server.vm.network "public_network", bridge: "wlp3s0: Wi-Fi Network", ip: "10.0.0.100"
 
     server.vm.provider "virtualbox" do |vb|
