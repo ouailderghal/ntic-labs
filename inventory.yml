@@ -323,5 +323,5 @@ all:
     servers:
       hosts:
         10.0.0.1:
-          hostname: s1.servers
+          hostname: main.servers
   hosts: null

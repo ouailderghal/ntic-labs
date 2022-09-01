@@ -31,3 +31,18 @@
       'guest_db.*': 'ALL,GRANT'
     login_user: root
     login_password: root
+
+- name: copy purge database service
+  copy:
+    src: purge-guest-database.service
+    dest: /etc/systemd/system/
+    owner: root
+    group: root
+    mode: 0744
+
+- name: enable and run purge database service
+  service:
+    state: started
+    enabled: yes
+    daemon_reload: yes
+    name: purge-guest-database.service
