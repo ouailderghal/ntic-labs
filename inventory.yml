@@ -235,11 +235,11 @@ all:
             10.0.6.5:
               admin_password: $6$HDFaRsHSRNNe6Clf$MdowugKUsOct4SmIaRsV2wzzkrvn16DvpFOpRGbdvE6BhqhM3Cg9OmlEvBKNa4rfrzlOeZH8KCY9E9fwZQp4S0
               hostname: pc5.lab6
-              interface_name: enp0s25
+              interface_name: enp2s0
             10.0.6.6:
               admin_password: $6$OleVR.H6DXN/lIfa$VPbdw7BJkgceDM51aU2zeooIRD3wBXXH/xQeqOSzq9LA4pAsg4MMhYThH3yOg/DjYLJupYpgJE.d9r3RL7ugi.
               hostname: pc6.lab6
-              interface_name: enp0s25
+              interface_name: enp2s0
             10.0.6.7:
               admin_password: $6$YLaGkTX691.9arT0$U5R0NViIi1ZrN.Ht/qavEDXLas32TfQC/oItkf4B9x42wB7I.XLQQ7DCw9wMRAxaDhYrwy0NSvlyyfIvWKtI4/
               hostname: pc7.lab6
@@ -271,11 +271,11 @@ all:
             10.0.6.14:
               admin_password: $6$UIDwmLVG3wX6HHFr$DW5fxXRjb4BuS/b9BrvVdgbEgSrfzWfd0S2uP3O6DXrz/9lZBAuAA59ovuvcs7kt8KtMDcb7B61SXZhK7./K5.
               hostname: pc14.lab6
-              interface_name: enp0s25
+              interface_name: enp2s0
             10.0.6.15:
               admin_password: $6$aUzAcFrMl5maSBYo$c9Z1y8ArAOklJ7YVWIiRrX1UsItkEM7Lr8dQ91PAlDFudwrf4gmHf1ohGGdP4W2gkvjtwqpD/Db.8xR01/g5r1
               hostname: pc15.lab6
-              interface_name: enp0s25
+              interface_name: enp2s0
             10.0.6.16:
               admin_password: $6$OrCmarkuYwCji1rt$d4XqVzU.DDnP.nnjdfjLET/s./EkvaXJbjoEEQZ3pxMumuI1tbUs8o97i0AH.e2G3n7P7jNnMmIDMM2pTnhP80
               hostname: pc16.lab6
@@ -283,7 +283,7 @@ all:
             10.0.6.17:
               admin_password: $6$ibfsgDQI3J/KhfgT$2aQM7PMfFJGt8I18PeQJfIUqEjtiawcD6bYrwYhOdhuZQsJNNoMEh9r1lfjgRs4ef1DdZWV2xkrocc8whAzoE.
               hostname: pc17.lab6
-              interface_name: enp0s25
+              interface_name: enp2s0
             10.0.6.18:
               admin_password: $6$UHiai.Bkja7cV9nz$2s1ai6Tua7x6u3mxlZfOorxK1JBB4S/bquRMzczCN96oyBHmQbtCQ6b2v/UzrCUkyguN2sOgkOBiuW57vPUYF/
               hostname: pc18.lab6
@@ -295,7 +295,7 @@ all:
             10.0.6.20:
               admin_password: $6$.oHLHRI8W8MjnhjX$WpHs/7XM3AroGjlXy7TnqVfcoBxnA/7lsXoqt7B/GnDDzzfBaz31ZYMHQVrDwqZiZ0YbxPmhFh7wmRuk1xFOT1
               hostname: pc20.lab6
-              interface_name: enp0s25
+              interface_name: enp2s0
             10.0.6.21:
               admin_password: $6$J8rqdR4iCq9gULrY$lzeogG6Tucw.9WDnW94XnxWY.TLGSGJkW7MOp3xneLyGfPOk57ruyK.RGvLpuhksnWxjQgXbApNmQNN86h.OR1
               hostname: pc21.lab6
@@ -303,7 +303,7 @@ all:
             10.0.6.22:
               admin_password: $6$zlQl.QM04.bKcW3e$Zi2DgByzMw4PjhQXzTAddN3dO18w/1jUHKjm6nV1ThYZKXDcl2wTl4bv1UVPt97xVosf.n3Y2jcn2oolwTKSh/
               hostname: pc22.lab6
-              interface_name: enp0s25
+              interface_name: enp2s8
             10.0.6.23:
               admin_password: $6$tmZf/2mwDRb7LluH$mG9vEZOMo7/jVSiBOrpeYanpoOzjbDilK40A4IaHBCX9KIXALDbMxWFqB5N1Pyht9VokmjQFtIXg84/fN4Nar0
               hostname: pc23.lab6
@@ -311,7 +311,7 @@ all:
             10.0.6.24:
               admin_password: $6$CSK.WaRTp1b3Jtze$968MKs2gzzF7.TtiZt2VgqRiFL5gZq0VDAcqoZHsddzwSrCc0YglNqWXNOre/QHTjn/Jm7XHj.Kz2jJF8h4OR.
               hostname: pc24.lab6
-              interface_name: enp0s25
+              interface_name: enp2s0
             10.0.6.25:
               admin_password: $6$tqWbbczhKkVBC4qY$kaOs7IRyXAGIQEub.XWgmdhxMygCqa3SvpywslZ2tw.cHtSzFHW5FWqq0ahyLhknsAYouAwFGeWiPhk6PxmS/1
               hostname: pc25.lab6
