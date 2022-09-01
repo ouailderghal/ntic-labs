@@ -6,7 +6,7 @@ After=mariadb.service
 [Service]
 Type=simple
 RemainAfterExit=yes
-ExecStart=/usr/bin/mysql -e "DROP DATABASE guest_db; CREATE DATABASE guest_db;"
+ExecStart=/usr/bin/mysql -u guest -pguest -e "DROP DATABASE guest_db; CREATE DATABASE guest_db;"
 TimeoutStartSec=0
 
 [Install]
