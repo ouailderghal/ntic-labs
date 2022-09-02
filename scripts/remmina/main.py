@@ -30,16 +30,20 @@ def write_config(output: Path, rendered_template: str, filename: str):
 
 
 def get_template(template_file: Path = Path('./remmina.j2')) -> Template:
-    """ Reads Jinja template from file system. """
+    """
+    Reads Jinja template from file system.
+
+    :param template_file: Path to Jinja template file.
+    :return: Jinja template.
+    """
     template_loader = FileSystemLoader(searchpath='.')
     template_env = Environment(loader=template_loader)
     return template_env.get_template(str(template_file))
 
 
-def gen_teachers_config(labs: [str],
+def gen_teachers_config(labs: list[str],
                         template: Template,
                         username: str = 'admin',
-                        number_of_hosts: int = 25,
                         output: Path = Path('./remmina')) -> None:
     """
     Generates Remmina configuration files for NTIC-LABS teachers machines.
@@ -47,7 +51,6 @@ def gen_teachers_config(labs: [str],
     :param labs: List of laboratory names.
     :param template: Jinja template for Remmina configuration file.
     :param username: Default administrator username.
-    :param number_of_hosts: Number of hosts per lab.
     :param output: Path to output directory.
     """
 
@@ -55,15 +58,8 @@ def gen_teachers_config(labs: [str],
         host_number = '100'.zfill(3)
         host_name = f'pc{host_number}.{lab}'
         host_ip = f'{IP_PREFIX}.{i + 4}.{host_number}'
-        splitted_host_name = host_name.split('.')
-        splitted_host_ip = host_ip.split('.')
 
-        config_filename = ''.join([
-            f'{lab}_ssh_{splitted_host_name[0]}_{splitted_host_name[1]}_',
-            f'{splitted_host_ip[0]}_{splitted_host_ip[1]}_{splitted_host_ip[2]}_{splitted_host_ip[3]}',
-            '.remmina'
-        ])
-
+        config_filename = build_filename(group=lab, host_name=host_name, host_ip=host_ip)
         template_out = template.render(host_name=host_name,
                                        user_name=username,
                                        host_ip=host_ip,
@@ -73,7 +69,7 @@ def gen_teachers_config(labs: [str],
         write_config(output=output, rendered_template=template_out, filename=config_filename)
 
 
-def gen_students_config(labs: [str],
+def gen_students_config(labs: list[str],
                         template: Template,
                         username: str = 'admin',
                         number_of_hosts: int = 25,
@@ -95,15 +91,7 @@ def gen_students_config(labs: [str],
             host_name = f'pc{host_number}.{lab}'
             host_ip = f'{IP_PREFIX}.{i + 4}.{j + 1}'
 
-            splitted_host_name = host_name.split('.')
-            splitted_host_ip = host_ip.split('.')
-
-            config_filename = ''.join([
-                f'{lab}_ssh_{splitted_host_name[0]}_{splitted_host_name[1]}_',
-                f'{splitted_host_ip[0]}_{splitted_host_ip[1]}_{splitted_host_ip[2]}_{splitted_host_ip[3]}',
-                '.remmina'
-            ])
-
+            config_filename = build_filename(group=lab, host_name=host_name, host_ip=host_ip)
             template_out = template.render(host_name=host_name,
                                            user_name=username,
                                            host_ip=host_ip,
@@ -117,33 +105,42 @@ def gen_server_config(template: Template,
                       username: str = 'ouail',
                       output: Path = Path('./remmina')) -> None:
     """
-    :param template:
-    :param username:
-    :param output:
+    :param template: Jinja template for Remmina configuration file.
+    :param username: Default administrator username.
+    :param output: Path to output directory.
     """
 
     host_name = 'main.servers'
     host_ip = '10.0.0.1'
     group = 'servers'
 
-    splitted_host_name = host_name.split('.')
-    splitted_host_ip = host_ip.split('.')
-
-    config_filename = ''.join([
-        f'{group}_ssh_{splitted_host_name[0]}_{splitted_host_name[1]}_',
-        f'{splitted_host_ip[0]}_{splitted_host_ip[1]}_{splitted_host_ip[2]}_{splitted_host_ip[3]}',
-        '.remmina'
-    ]) # TODO: refactor to a function
-
+    config_filename = build_filename(group=group, host_name=host_name, host_ip=host_ip)
     template_out = template.render(host_name=host_name,
                                    user_name=username,
                                    host_ip=host_ip,
                                    group=group)
 
-    print(config_filename)
-
     # Write configuration file
-    # write_config(output=output, rendered_template=template_out, filename=config_filename)
+    write_config(output=output, rendered_template=template_out, filename=config_filename)
+
+
+def build_filename(group: str, host_name: str, host_ip: str) -> str:
+    """
+    Builds Remmina configuration file name.
+
+    :param group: Host group.
+    :param host_name: Host name.
+    :param host_ip: Host IP address.
+    :return: Remmina configuration file name.
+    """
+    splitted_host_name = host_name.split('.')
+    splitted_host_ip = host_ip.split('.')
+
+    return ''.join([
+        f'{group}_ssh_{splitted_host_name[0]}_{splitted_host_name[1]}_',
+        f'{splitted_host_ip[0]}_{splitted_host_ip[1]}_{splitted_host_ip[2]}_{splitted_host_ip[3]}',
+        '.remmina'
+    ])
 
 
 if __name__ == '__main__':
