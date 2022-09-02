@@ -102,6 +102,8 @@ def gen_server_config(template: Template,
                       username: str = 'ouail',
                       output: Path = Path('./remmina')) -> None:
     """
+    Generates Remmina configuration files for NTIC-LABS main server.
+
     :param template: Jinja template for Remmina configuration file.
     :param username: Default administrator username.
     :param output: Path to output directory.
