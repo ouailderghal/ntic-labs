@@ -65,7 +65,6 @@ def gen_teachers_config(labs: list[str],
                                        host_ip=host_ip,
                                        group=lab)
 
-        # Write configuration file
         write_config(output=output, rendered_template=template_out, filename=config_filename)
 
 
@@ -85,7 +84,6 @@ def gen_students_config(labs: list[str],
     """
 
     for i, lab in enumerate(labs):
-        # Generate config files for student machines
         for j in range(number_of_hosts):
             host_number = str(j + 1).zfill(3)
             host_name = f'pc{host_number}.{lab}'
@@ -97,7 +95,6 @@ def gen_students_config(labs: list[str],
                                            host_ip=host_ip,
                                            group=lab)
 
-            # Write configuration file
             write_config(output=output, rendered_template=template_out, filename=config_filename)
 
 
@@ -120,7 +117,6 @@ def gen_server_config(template: Template,
                                    host_ip=host_ip,
                                    group=group)
 
-    # Write configuration file
     write_config(output=output, rendered_template=template_out, filename=config_filename)
 
 
