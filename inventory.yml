@@ -2,6 +2,20 @@ all:
   children:
     machines:
       children:
+        teachers:
+          hosts:
+            10.0.4.100:
+              admin_password: $6$K8lAFQu8WVpJ1kDY$tCsi7Jbhg6lD9T2Uv.a9DalQOUVyaAuIdDIARkXpYa/L6/64io1bgKIaJT5j2ys9ghz1b2xz8A3VgF3iwcVKd0
+              hostname: teacher.lab4
+              interface_name: enp2s0
+            10.0.5.100:
+              admin_password: $6$jVRM3ywHZ5QSfxnk$5y1kkNFoMeIr5q1rmg646.BRBtT7Yh0nT8By1npm0YUrrHgkdYglYHsUUYcRXci6XkateH/4SkPCuhNgKQBK/1
+              hostname: teacher.lab5
+              interface_name: enp2s0
+            10.0.6.100:
+              admin_password: $6$haCfzi4L7pwAsyCi$QMhMJmXV15g1yEXIoMGksBYDjEQLJavR.f6R5YZECmMB.zuEU0HkYnitZOjw7q37xLY7hqcAyX84sjeTYRtFU/
+              hostname: teacher.lab6
+              interface_name: enp2s0
         lab4:
           hosts:
             10.0.4.1:
@@ -104,10 +118,6 @@ all:
               admin_password: $6$/sqgbEddmZBHQtwO$9yXkAMxqAIPqe5K42BV25krZjKxyKcxjQvy1xQ/GGCG9VeD3xE2RgoqKPdPCLG81plM/ECpn8ESA8hC1RbCX60
               hostname: pc25.lab4
               interface_name: enp0s25
-            10.0.4.100:
-              admin_password: $6$K8lAFQu8WVpJ1kDY$tCsi7Jbhg6lD9T2Uv.a9DalQOUVyaAuIdDIARkXpYa/L6/64io1bgKIaJT5j2ys9ghz1b2xz8A3VgF3iwcVKd0
-              hostname: teacher.lab4
-              interface_name: enp2s0
         lab5:
           hosts:
             10.0.5.1:
@@ -210,10 +220,6 @@ all:
               admin_password: $6$xO5OLdBOiiWjcBVS$uJZYAG2mD07ruorce9tpLkstK6Sq9lGnjxPLGmy73zlharpGEsGycGHO7HwAGQRJrFoMQBOxAq/PhiPWkNKdW1
               hostname: pc25.lab5
               interface_name: enp0s25
-            10.0.5.100:
-              admin_password: $6$jVRM3ywHZ5QSfxnk$5y1kkNFoMeIr5q1rmg646.BRBtT7Yh0nT8By1npm0YUrrHgkdYglYHsUUYcRXci6XkateH/4SkPCuhNgKQBK/1
-              hostname: teacher.lab5
-              interface_name: enp2s0
         lab6:
           hosts:
             10.0.6.1:
@@ -316,10 +322,6 @@ all:
               admin_password: $6$tqWbbczhKkVBC4qY$kaOs7IRyXAGIQEub.XWgmdhxMygCqa3SvpywslZ2tw.cHtSzFHW5FWqq0ahyLhknsAYouAwFGeWiPhk6PxmS/1
               hostname: pc25.lab6
               interface_name: enp0s25
-            10.0.6.100:
-              admin_password: $6$haCfzi4L7pwAsyCi$QMhMJmXV15g1yEXIoMGksBYDjEQLJavR.f6R5YZECmMB.zuEU0HkYnitZOjw7q37xLY7hqcAyX84sjeTYRtFU/
-              hostname: teacher.lab6
-              interface_name: enp2s0
     servers:
       hosts:
         10.0.0.1:
