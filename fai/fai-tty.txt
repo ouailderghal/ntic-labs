@@ -1,0 +1,1 @@
+htop neofetch emacs ranger vim tree git gitg ufw mariadb-server mariadb-client python3-pymysql sqlite3 sqlite3-doc build-essential make openjdk-17-jdk openjdk-17-jre openjdk-17-doc openjdk-17-demo openjdk-17-dbg ntp zip unzip
