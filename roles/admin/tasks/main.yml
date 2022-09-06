@@ -19,8 +19,10 @@
     exclusive: false
   with_items:
     - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2MtpCKuFZeSZCNZay4zYIL01+e6HX72FCpQCQMHxYk ouailderghal1@gmail.com"
-    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGGFDcxGU1aDkiZvDDHejVySXhCIyqWR17id2ak3ix/6 mohamed.badeche@univ-constantine2.dz"
+    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDvltGM7/KOGvJPX6CuKhBsfSOKbcSrPin9/XajAhv8E ansible.ouail@main.servers"
     - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxpG2h4nGqsNcl6dNyqaEackD6eI0WIJvupubhgiAlyt0J90PDyVHtlvXSElB2g6t5RIeVpZtCFUnBMt6LYVdguD6OEnlze2Vl1rsWa7hDL+6/obaRy5vqbi5A23ekUDyjvGn6hHA3878B0SjiqxPuo0e5Kh7j2XdgjJ+BbxspJ/h5ajI5KQFbFJBUjnBBBxQIp7oW9sZkGusuBA/MxMu/tlhpTG2uwPC7c4Vc5l0hOhvlkH8IfE6vffdp/ti9fItoruQSmSVyzGUhbYVpJqLim3srAS89k03wIVD+YfFIYzJWwN7DSQFryk3Umj8++T6TlbwDjKpbR9jsmO5IGSoX"
+    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJo9WR0TsiGPQr5y+RR3wTQuBbEIQpkdzrjogxsWiysl ansible.ahmed@main.servers"
+    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGGFDcxGU1aDkiZvDDHejVySXhCIyqWR17id2ak3ix/6 mohamed.badeche@univ-constantine2.dz"
 
 - name: enable passwordless login
   lineinfile:
