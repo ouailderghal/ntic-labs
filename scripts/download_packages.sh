@@ -15,7 +15,7 @@
 # Downloaded packages can be found in your project folder, under packages directory.
 # 
 
-WORKDIR=$HOME/Projects/lmc
+WORKDIR=$HOME/Projects/ntic_labs
 DOWNLOAD_DIR=$WORKDIR/packages
 
 ECLIPSE_URL="https://ftp.osuosl.org/pub/eclipse/technology/epp/downloads/release/2022-06/R/eclipse-java-2022-06-R-linux-gtk-x86_64.tar.gz"
@@ -26,6 +26,9 @@ VSCODE_FILENAME="$WORKDIR/roles/web_lab/files/vscode.deb"
 
 PACKETTRACER_URL="https://ia802208.us.archive.org/20/items/pt81_20220222/CiscoPacketTracer_811_Ubuntu_64bit.deb"
 PACKETTRACER_FILENAME="$WORKDIR/roles/networking_lab/files/packettracer.deb"
+
+QTSPIM_URL="https://jztkft.dl.sourceforge.net/project/spimsimulator/qtspim_9.1.23_linux64.deb"
+QTSPIM_FILENAME="$WORKDIR/roles/extra/files/qtspim.deb"
 
 # Download Eclipse for Java Developers
 [ ! -f $ECLIPSE_FILENAME ] && curl $ECLIPSE_URL -o $ECLIPSE_FILENAME || \
@@ -38,4 +41,8 @@ PACKETTRACER_FILENAME="$WORKDIR/roles/networking_lab/files/packettracer.deb"
 # Download Cisco Packet Tracer
 [ ! -f $PACKETTRACER_FILENAME ] && curl $PACKETTRACER_URL -o $PACKETTRACER_FILENAME || \
     echo "[INFO] Cisco Packet Tracer has already been downloaded."
+
+# Download QTSpim
+[ ! -f $QTSPIM_FILENAME ] && curl $QTSPIM_URL -o $QTSPIM_FILENAME || \
+    echo "[INFO] QTSpim has already been downloaded."
 

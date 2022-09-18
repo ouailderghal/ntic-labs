@@ -19,3 +19,13 @@
       - zip
       - unzip
     state: present
+
+- name: copy packet tracer deb file
+  copy:
+    src: qtspim.deb
+    dest: /opt
+    owner: root
+    group: root
+
+- name: install packet tracer
+  apt: deb=/opt/qtspim.deb
