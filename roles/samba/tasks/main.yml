@@ -62,7 +62,7 @@
     - S3
     - S4
 
-- name: create modules directories for each semester
+- name: create modules directories for each LMD semester
   file:
     path: /home/samba/Shared/LMD/{{ item.semester }}/{{ item.subject }}
     state: directory
@@ -80,6 +80,32 @@
     - { semester: S4, subject: BD }
     - { semester: S4, subject: RES }
     - { semester: S4, subject: DAO }
+
+- name: create semesters directories for ENG class
+  file:
+    path: /home/samba/Shared/ENG/{{ item }}
+    state: directory
+    owner: root
+    group: teachers
+    mode: 0755
+  with_items:
+    - S1
+    - S2
+
+- name: create modules directories for each ENG semester
+  file:
+    path: /home/samba/Shared/ENG/{{ item.semester }}/{{ item.subject }}
+    state: directory
+    owner: root
+    group: teachers
+    mode: 0775
+  with_items:
+    - { semester: S1, subject: ASDS }
+    - { semester: S1, subject: AO1 }
+    - { semester: S1, subject: BUW }
+    - { semester: S2, subject: SFDD }
+    - { semester: S2, subject: AO2 }
+    - { semester: S2, subject: IRI1 }
 
 - name: copy samba server configuration file
   template:
