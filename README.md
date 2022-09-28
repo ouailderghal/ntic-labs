@@ -13,7 +13,7 @@ running Debian or a Debian-based GNU/Linux distribution such as Ubuntu. It is al
 terminal-based text editor such as `vim`.
 
 ```shell
-sudo apt install -y ansible vim
+sudo apt install -y ansible sshpass vim
 ```
 
 After the installation is completed, you can check Ansible version by typing the command below. If you are running `Debian 11`, you
