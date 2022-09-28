@@ -368,19 +368,19 @@ all:
             10.0.10.10:
               admin_password: $6$2KzV4efgmxy/ZaOu$3gxUptUvtRCNs0r3VDG49kOymfAlU691UEpW5RkXvw6/lUdsFUUBiInb6JWp5hVbbupBmwVJjUA8F0995w36y/
               hostname: pc10.lab10
-              interface_name: enp1s0
+              interface_name: enp2s0
             10.0.10.11:
               admin_password: $6$pZSncCPa6hBYFfIL$kEuMsYk.45T/K2.aAVlrB/0kBv8EcR9bExz1LSkcN4toO0A8Uj8b8bKBxjYvt7StD4NlQh/36gE3A6WPvaEbv0
               hostname: pc11.lab10
-              interface_name: enp1s0
+              interface_name: enp2s0 
             10.0.10.12:
               admin_password: $6$RMHgQtgYTikmEOuT$bxIi7jv8FsIWJ43kzhFizKHjtgAIdyflsqm//c9Hpk0b9/nmoYgsWOTErqGesHtlxiCRPR5aZnAq5WXyXUrkz.
               hostname: pc12.lab10
-              interface_name: enp1s0
+              interface_name: enp2s0 
             10.0.10.13:
               admin_password: $6$4QbsKVAQVi./3LXu$9qPHLqXjeyXY8GgcxnxZOFRn19lMSwlB6RqZZdMsKuuw4G.AMDfst.2ZSAT6dtCAi6Z7Q4XjmKxM4.FrHTYSB/
               hostname: pc13.lab10
-              interface_name: enp1s0
+              interface_name: enp2s0
             10.0.10.14:
               admin_password: $6$40WsnhKgDEJ/WnnF$hpdZLx3dDm84mgdk6x5sInsNmBPw78PtyV6Ad69UHmzuGMnldYE5wJiJgqx5Vn54daXKW6CWAHphdJ.ojJ/fQ.
               hostname: pc14.lab10
@@ -412,11 +412,11 @@ all:
             10.0.10.21:
               admin_password: $6$YgBRiIZTNA7eOvRx$QDul57zQOoR8Ck20/VKclTkex9xzJrorkFo2pOo/oEee.nNI6vJMEvYgWhSmNjzaOWeh4DvrfhT4UOCAfELbE/
               hostname: pc21.lab10
-              interface_name: enp1s0
+              interface_name: enp2s0
             10.0.10.22:
               admin_password: $6$8tibxdGbo92le//0$ajtbrE4X8iUyrCEEoI1SlUyJ43keNnnD6D.UgScBrxsEGMKkUJ8424r9teFEyjF//Ts3Nw39/R5EqPsUCSXMt0
               hostname: pc22.lab10
-              interface_name: enp1s0
+              interface_name: enp2s0
 
     servers:
       hosts:
