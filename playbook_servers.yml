@@ -11,3 +11,4 @@
     - { role: firewall_server, tags: firewall }
     - { role: dhcp, tags: dhcp }
     - { role: ssh, tags: ssh }
+    - { role: iptables_gateway, tags: gateway }

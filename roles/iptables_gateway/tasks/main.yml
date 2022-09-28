@@ -1,0 +1,22 @@
+---
+- name: copy iptables-gateway.sh script
+  template:
+    src: iptables-gateway.sh.j2
+    dest: /sbin/iptables-gateway.sh
+    owner: root
+    group: root
+    mode: a+x
+
+- name: copy iptables-gateway service
+  copy:
+    src: iptables-gateway.service
+    dest: /etc/systemd/system/
+    owner: root
+    group: root
+
+- name: enable and run iptables-gateway service
+  service:
+    state: started
+    enabled: yes
+    daemon_reload: yes
+    name: iptables-gateway.service

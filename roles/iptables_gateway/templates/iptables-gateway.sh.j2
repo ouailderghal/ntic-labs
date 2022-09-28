@@ -1,0 +1,5 @@
+#!/bin/bash
+
+iptables -A FORWARD -i {{ local_interface}} -o {{ internet_interface}} -j ACCEPT
+iptables -A FORWARD -i {{ internet_interface}} -o {{ local_interface}} -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -t nat -A POSTROUTING -o {{ internet_interface}} -j MASQUERADE
