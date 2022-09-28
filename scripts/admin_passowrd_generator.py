@@ -44,6 +44,7 @@ def main() -> None:
             'lab4': inventory['all']['children']['machines']['children']['lab4']['hosts'],
             'lab5': inventory['all']['children']['machines']['children']['lab5']['hosts'],
             'lab6': inventory['all']['children']['machines']['children']['lab6']['hosts'],
+            'lab10': inventory['all']['children']['machines']['children']['lab10']['hosts'],
         }
 
         for lab in labs.values():
