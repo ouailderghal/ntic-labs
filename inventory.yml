@@ -16,6 +16,10 @@ all:
               admin_password: $6$haCfzi4L7pwAsyCi$QMhMJmXV15g1yEXIoMGksBYDjEQLJavR.f6R5YZECmMB.zuEU0HkYnitZOjw7q37xLY7hqcAyX84sjeTYRtFU/
               hostname: teacher.lab6
               interface_name: enp2s0
+            10.0.100.100:
+              admin_password:
+              hostname: teacher.lab10
+              interface_name: enp1s0
         lab4:
           hosts:
             10.0.4.1:
@@ -322,6 +326,98 @@ all:
               admin_password: $6$tqWbbczhKkVBC4qY$kaOs7IRyXAGIQEub.XWgmdhxMygCqa3SvpywslZ2tw.cHtSzFHW5FWqq0ahyLhknsAYouAwFGeWiPhk6PxmS/1
               hostname: pc25.lab6
               interface_name: enp0s25
+
+        lab10:
+          hosts:
+            10.0.10.1:
+              admin_password:
+              hostname: pc1.lab10
+              interface_name: enp1s0
+            10.0.10.2:
+              admin_password:
+              hostname: pc2.lab10
+              interface_name: enp1s0
+            10.0.10.3:
+              admin_password:
+              hostname: pc3.lab10
+              interface_name: enp1s0
+            10.0.10.4:
+              admin_password:
+              hostname: pc4.lab10
+              interface_name: enp1s0
+            10.0.10.5:
+              admin_password:
+              hostname: pc5.lab10
+              interface_name: enp1s0
+            10.0.10.6:
+              admin_password:
+              hostname: pc6.lab10
+              interface_name: enp1s0
+            10.0.10.7:
+              admin_password:
+              hostname: pc7.lab10
+              interface_name: enp1s0
+            10.0.10.8:
+              admin_password:
+              hostname: pc8.lab10
+              interface_name: enp1s0
+            10.0.10.9:
+              admin_password:
+              hostname: pc9.lab10
+              interface_name: enp1s0
+            10.0.10.10:
+              admin_password:
+              hostname: pc10.lab10
+              interface_name: enp1s0
+            10.0.10.11:
+              admin_password:
+              hostname: pc11.lab10
+              interface_name: enp1s0
+            10.0.10.12:
+              admin_password:
+              hostname: pc12.lab10
+              interface_name: enp1s0
+            10.0.10.13:
+              admin_password:
+              hostname: pc13.lab10
+              interface_name: enp1s0
+            10.0.10.14:
+              admin_password:
+              hostname: pc14.lab10
+              interface_name: enp1s0
+            10.0.10.15:
+              admin_password:
+              hostname: pc15.lab10
+              interface_name: enp1s0
+            10.0.10.16:
+              admin_password:
+              hostname: pc16.lab10
+              interface_name: enp1s0
+            10.0.10.17:
+              admin_password:
+              hostname: pc17.lab10
+              interface_name: enp1s0
+            10.0.10.18:
+              admin_password:
+              hostname: pc18.lab10
+              interface_name: enp1s0
+            10.0.10.19:
+              admin_password:
+              hostname: pc19.lab10
+              interface_name: enp1s0
+            10.0.10.20:
+              admin_password:
+              hostname: pc20.lab10
+              interface_name: enp1s0
+            10.0.10.21:
+              admin_password:
+              hostname: pc21.lab10
+              interface_name: enp1s0
+            10.0.10.22:
+              admin_password:
+              hostname: pc22.lab10
+              interface_name: enp1s0
+
     servers:
       hosts:
         10.0.0.1:
