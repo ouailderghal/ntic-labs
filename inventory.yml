@@ -364,7 +364,7 @@ all:
             10.0.10.9:
               admin_password: $6$sCBM2smD4xfkFgTO$xEz9UDtD9v9dn5gfxulySmtw3JUhC6Z4Adq7GAWg6nWBVhANUzCGIvqRU3D.w6CpP174yCQav2.69CLgQG8aJ1
               hostname: pc9.lab10
-              interface_name: enp1s0
+              interface_name: enp2s0
             10.0.10.10:
               admin_password: $6$2KzV4efgmxy/ZaOu$3gxUptUvtRCNs0r3VDG49kOymfAlU691UEpW5RkXvw6/lUdsFUUBiInb6JWp5hVbbupBmwVJjUA8F0995w36y/
               hostname: pc10.lab10
