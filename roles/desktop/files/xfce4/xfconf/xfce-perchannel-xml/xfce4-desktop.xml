@@ -44,16 +44,32 @@
           <property name="image-style" type="int" value="5"/>
           <property name="last-image" type="string" value="/opt/wallpapers/ntic-wallpaper-dark.png"/>
         </property>
-
-        <property name="monitorDP-1" type="empty">
+      </property>
+      
+      <property name="monitorVGA1" type="empty">
+        <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="1"/>
           <property name="image-style" type="int" value="5"/>
           <property name="last-image" type="string" value="/opt/wallpapers/ntic-wallpaper-dark.png"/>
         </property>
-
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="1"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/opt/wallpapers/ntic-wallpaper-dark.png"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="1"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/opt/wallpapers/ntic-wallpaper-dark.png"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="1"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/opt/wallpapers/ntic-wallpaper-dark.png"/>
+        </property>
       </property>
-      
-      <property name="monitorVGA1" type="empty">
+
+      <property name="monitorDP-1" type="empty">
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="1"/>
           <property name="image-style" type="int" value="5"/>
