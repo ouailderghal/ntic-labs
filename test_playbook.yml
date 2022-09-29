@@ -1,0 +1,11 @@
+---
+- hosts: machines
+  user: admin
+  become: yes
+
+  tasks:
+    - name: "run ls on machines"
+      shell: "ls -l"
+      register: output
+
+    - debug: var=output.stdout_lines
