@@ -7,7 +7,7 @@
     - { role: hostname, tags: hostname }
     - { role: upgrade, tags: upgrade }
     - { role: time, tags: time }
-      # - { role: gantsign.keyboard, keyboard_model: pc105, keyboard_layout: fr }
+    - { role: gantsign.keyboard, keyboard_model: pc105, keyboard_layout: fr }
     - { role: bash, tags: bash }
     - { role: guest, tags: guest }
     - { role: admin, tags: admin }
