@@ -3,6 +3,7 @@
 <channel name="xfce4-desktop" version="1.0">
   <property name="backdrop" type="empty">
     <property name="screen0" type="empty">
+
       <property name="monitor0" type="empty">
         <property name="brightness" type="empty"/>
         <property name="color1" type="empty"/>
@@ -13,6 +14,7 @@
         <property name="last-image" type="empty"/>
         <property name="last-single-image" type="empty"/>
       </property>
+
       <property name="monitor1" type="empty">
         <property name="brightness" type="empty"/>
         <property name="color1" type="empty"/>
@@ -23,6 +25,7 @@
         <property name="last-image" type="empty"/>
         <property name="last-single-image" type="empty"/>
       </property>
+
       <property name="monitorVGA-1" type="empty">
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="1"/>
@@ -91,6 +94,7 @@
           <property name="last-image" type="string" value="/opt/wallpapers/ntic-wallpaper-dark.png"/>
         </property>
       </property>
+
     </property>
   </property>
   <property name="desktop-icons" type="empty">
