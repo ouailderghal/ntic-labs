@@ -17,15 +17,14 @@ List of packages to feed to [FAI Image Builder](https://fai-project.org/FAIme/) 
 You will find 2 package lists for the TTY (no GUI) version and the XFCE version. After the build is finished, you will
 be notified via email with the download link of the custom ISO image.
 
-The last step is to burn the ISO file on thumb drives; if you are using a GNU/Linux machine, you can use the commands
+The last step is to burn the ISO file on thumb drives; If you are on a Windows machine, you can
+use [Rufus](https://rufus.ie/en/) to burn the ISO. If you are using a GNU/Linux machine, you can use the commands
 below :
 
 ```shell
 lsblk # list connected devices
 sudo dd if=fai.iso of=/dev/sdX status=progress bs=1M
 ```
-
-If you are on a Windows machine, you can use [Rufus](https://rufus.ie/en/) to burn the ISO.
 
 ## Install Ansible
 
