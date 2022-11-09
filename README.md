@@ -1,14 +1,19 @@
 # Laboratory machines configuration
 
-This repository contains Ansible playbook files and documentation for setting up laboratory machines of the faculty
-of new technologies, University of Constantine 2. The goal is to connect labs in the same network and offer an
-infrastructure that will be used later for deploying local services. The figure bellow illustrates the
-topology that we set up.
+This repository contains Ansible playbook files, scripts and documentation for setting up laboratory machines of the
+faculty of new technologies in [University of Constantine 2](https://www.univ-constantine2.dz). The goal is to connect
+labs in the same network and offer an infrastructure that will be used later for deploying local services. The figure
+bellow illustrates the topology that we set up.
 
 ![Project topology](images/topology.png)
 
-Please follow carefully this tutorial, make sure that you have a stable internet connection on both your host and the
-machine(s) you want to set up.
+In this README, you will find a brief description about `ntic-labs` project and also a documentation on how to set up
+your environment to deploy and make use of the scripts and playbooks in this repository. Any comments and suggestions
+are welcome.
+
+If you want to reproduce the implemented topology, please follow this tutorial. make sure that you have a stable
+internet connection on both your host and the machine(s) you want to set up. It is recommended to
+have [Debian 11](https://debian.org) Linux installed on your host machine.
 
 ## Generate automatic installation ISO
 
