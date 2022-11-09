@@ -13,14 +13,14 @@ are welcome.
 
 If you want to reproduce the implemented topology, please follow this tutorial. make sure that you have a stable
 internet connection on both your host and the machine(s) you want to set up. It is recommended to
-have [Debian 11](https://debian.org) Linux installed on your host machine.
+have [Debian 11](https://debian.org) installed on your host machine.
 
 ## Generate automatic installation ISO
 
-The distribution of choice is `Debian 11`, the installation process is fully automated. In order to prepare installation
-ISO file, you need to use the custom image builder of the [FAI Project](https://fai-project.org/) tool. The goal of
-using such tool is to automate the process of installation, and provide pre-downloaded common packages (such as OpenJDK)
-out of the box after installation.
+The distribution of choice is `Debian 11` on both machines and the main server, the installation process on labs
+machines is fully automated. In order to prepare the ISO file, you need to use the custom image builder of
+the [FAI Project](https://fai-project.org/) tool. The goal of using such tool is to automate the process of
+installation and provide pre-downloaded common packages (such as OpenJDK) out of the box after installation.
 
 List of packages to feed to [FAI Image Builder](https://fai-project.org/FAIme/) is available under `fai/` directory.
 You will find 2 package lists for the TTY (no GUI) version and the XFCE version. After the build is finished, you will
