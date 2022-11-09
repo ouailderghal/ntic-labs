@@ -1,7 +1,11 @@
 # Laboratory machines configuration
 
 This repository contains Ansible playbook files and documentation for setting up laboratory machines of the faculty
-of new technologies, University of Constantine 2.
+of new technologies, University of Constantine 2. The goal is to connect labs in the same network and offer an
+infrastructure that will be used later for deploying local services. The figure bellow illustrates the
+topology that we set up.
+
+![Project topology](images/topology.png)
 
 Please follow carefully this tutorial, make sure that you have a stable internet connection on both your host and the
 machine(s) you want to set up.
