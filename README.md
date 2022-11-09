@@ -17,22 +17,19 @@ have [Debian 11](https://debian.org) installed on your host machine.
 
 ## Generate automatic installation ISO
 
-The distribution of choice is `Debian 11` on both machines and the main server, the installation process on labs
-machines is fully automated. In order to prepare the ISO file, you need to use the custom image builder of
-the [FAI Project](https://fai-project.org/) tool. The goal of using such tool is to automate the process of
-installation and provide pre-downloaded common packages (such as OpenJDK) out of the box after installation.
+The distribution of choice is `Debian 11` on both machines and the gateway server, the installation process on
+laboratory machines is completely automatic. To prepare the ISO file, you should use
+the [FAI Project](https://fai-project.org) custom image builder. The purpose of using this tool is to automate the
+installation process and provide common pre-downloaded packages (like OpenJDK) out of the box after installation.
 
-List of packages to feed to [FAI Image Builder](https://fai-project.org/FAIme/) is available under `fai/` directory.
-You will find 2 package lists for the TTY (no GUI) version and the XFCE version. After the build is finished, you will
-be notified via email with the download link of the custom ISO image.
-
-The last step is to burn the ISO file on thumb drives; If you are on a Windows machine, you can
-use [Rufus](https://rufus.ie/en/) to burn the ISO. If you are using a GNU/Linux machine, you can use the commands
-below :
+The [FAI Image Builder](https://fai-project.org/FAIme/)  requires a list of packages to install, you can find a list for
+the TTY version (no graphical interface) and the XFCE version under the `fai/` directory. Once the build is complete,
+you will be notified by e-mail with the download link of the custom image ISO file. You may proceed with burning the
+image on thumb drives. You can use `dd` command to perform the burning step :
 
 ```shell
-lsblk # list connected devices
-sudo dd if=fai.iso of=/dev/sdX status=progress bs=1M
+sudo fdisk -l                                          # list connected devices
+sudo dd if=fai.iso of=/dev/sdX status=progress bs=1M   # burn image on /dev/sdX device
 ```
 
 ## Install Ansible
